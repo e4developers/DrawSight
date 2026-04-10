@@ -4,9 +4,15 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>DrawSight</title>
-    <meta name="description" content="DrawSight is a local-first mobile inspection app built for photo-heavy workflows, fast field reporting, and AI-assisted drafting.">
+    <meta name="description" content="DrawSight is a local-first mobile inspection app built for photo-first capture, AI-assisted drafting, and faster solo inspector workflows.">
     <meta name="author" content="DrawSight">
     <meta name="robots" content="index, follow">
+    <meta property="og:title" content="DrawSight - AI-First Inspection Reporting">
+    <meta property="og:description" content="Photo-first inspection reporting for solo inspectors with AI-assisted drafting and local-first control.">
+    <meta property="og:url" content="https://e4developers.github.io/DrawSight/">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="DrawSight">
+    <link rel="canonical" href="https://e4developers.github.io/DrawSight/">
     <style>
         * {
             box-sizing: border-box;
@@ -103,8 +109,9 @@
 
         .hero,
         .card,
-        .workflow,
-        .legal-strip {
+        .timeline,
+        .legal-strip,
+        .trust-band {
             background: var(--surface);
             border: 1px solid rgba(255, 255, 255, 0.8);
             border-radius: var(--radius-lg);
@@ -113,11 +120,26 @@
         }
 
         .hero {
-            display: grid;
-            grid-template-columns: minmax(0, 1.2fr) minmax(300px, 0.9fr);
-            gap: 26px;
-            padding: 36px;
+            padding: 40px 36px;
             margin-bottom: 22px;
+            text-align: center;
+        }
+
+        .app-badge {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 88px;
+            height: 88px;
+            border-radius: 24px;
+            margin-bottom: 24px;
+            background: linear-gradient(135deg, var(--accent) 0%, var(--warm) 100%);
+            color: #fff;
+            box-shadow: 0 14px 34px rgba(13, 105, 117, 0.2);
+            font-family: "Avenir Next Condensed", "Avenir Next", "Segoe UI", sans-serif;
+            font-size: 2rem;
+            font-weight: 800;
+            letter-spacing: 0.08em;
         }
 
         .eyebrow {
@@ -131,31 +153,141 @@
         }
 
         h1 {
-            margin-bottom: 16px;
+            margin-bottom: 14px;
             font-family: "Avenir Next Condensed", "Avenir Next", "Segoe UI", sans-serif;
-            font-size: clamp(2.6rem, 6vw, 4.6rem);
+            font-size: clamp(2.6rem, 6vw, 4.5rem);
             line-height: 0.92;
             letter-spacing: -0.04em;
         }
 
-        .hero-copy p {
-            max-width: 58ch;
+        .hero p {
+            max-width: 760px;
+            margin: 0 auto;
             color: var(--muted);
-            font-size: 1.05rem;
+            font-size: 1.08rem;
         }
 
         .hero-chips {
             display: flex;
             flex-wrap: wrap;
+            justify-content: center;
             gap: 10px;
             margin-top: 20px;
         }
 
-        .cta-row {
+        .section-head {
+            margin: 10px 0 18px;
+            text-align: center;
+        }
+
+        .section-head h2 {
+            margin-bottom: 8px;
+            font-size: clamp(1.5rem, 3vw, 2rem);
+        }
+
+        .section-head p {
+            max-width: 720px;
+            margin: 0 auto;
+            color: var(--muted);
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+            gap: 18px;
+            margin-bottom: 22px;
+        }
+
+        .feature-grid {
+            display: grid;
+            grid-template-columns: repeat(4, minmax(0, 1fr));
+            gap: 18px;
+            margin-bottom: 22px;
+        }
+
+        .card {
+            padding: 24px;
+        }
+
+        .kicker {
+            margin-bottom: 10px;
+            color: var(--warm);
+            font-size: 0.78rem;
+            font-weight: 700;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+        }
+
+        .card h3 {
+            margin-bottom: 10px;
+            font-size: 1.18rem;
+        }
+
+        .card p,
+        .card li,
+        .timeline p,
+        .timeline li,
+        .legal-strip p,
+        .trust-band p,
+        .trust-band li {
+            color: var(--muted);
+        }
+
+        .card ul,
+        .trust-band ul {
+            margin-top: 12px;
+            padding-left: 18px;
+        }
+
+        .timeline {
+            padding: 28px;
+            margin-bottom: 22px;
+        }
+
+        .timeline h2 {
+            margin-bottom: 14px;
+            font-size: 1.35rem;
+        }
+
+        .timeline ol {
+            padding-left: 20px;
+        }
+
+        .timeline li + li {
+            margin-top: 12px;
+        }
+
+        .split {
+            display: grid;
+            grid-template-columns: minmax(0, 1.1fr) minmax(0, 0.9fr);
+            gap: 18px;
+            margin-bottom: 22px;
+        }
+
+        .trust-band {
+            padding: 26px;
+        }
+
+        .trust-band h2 {
+            margin-bottom: 10px;
+            font-size: 1.35rem;
+        }
+
+        .legal-strip {
+            padding: 28px;
+            margin-bottom: 18px;
+        }
+
+        .legal-strip h2 {
+            margin-bottom: 10px;
+            font-size: 1.35rem;
+        }
+
+        .legal-links {
             display: flex;
             flex-wrap: wrap;
             gap: 12px;
-            margin-top: 24px;
+            margin-top: 18px;
         }
 
         .btn {
@@ -185,114 +317,6 @@
             color: var(--text);
         }
 
-        .hero-note {
-            margin-top: 14px;
-            color: var(--muted);
-            font-size: 0.88rem;
-        }
-
-        .workflow {
-            padding: 24px;
-        }
-
-        .workflow h2 {
-            margin-bottom: 10px;
-            font-size: 1.2rem;
-        }
-
-        .workflow p,
-        .workflow li {
-            color: var(--muted);
-        }
-
-        .workflow ol {
-            margin-top: 14px;
-            padding-left: 20px;
-        }
-
-        .workflow li + li {
-            margin-top: 10px;
-        }
-
-        .section-head {
-            margin: 8px 0 18px;
-            text-align: center;
-        }
-
-        .section-head h2 {
-            margin-bottom: 8px;
-            font-size: clamp(1.5rem, 3vw, 2rem);
-        }
-
-        .section-head p {
-            max-width: 720px;
-            margin: 0 auto;
-            color: var(--muted);
-        }
-
-        .grid {
-            display: grid;
-            grid-template-columns: repeat(4, minmax(0, 1fr));
-            gap: 18px;
-            margin-bottom: 22px;
-        }
-
-        .card {
-            padding: 24px;
-        }
-
-        .kicker {
-            margin-bottom: 10px;
-            color: var(--warm);
-            font-size: 0.78rem;
-            font-weight: 700;
-            letter-spacing: 0.1em;
-            text-transform: uppercase;
-        }
-
-        .card h3 {
-            margin-bottom: 10px;
-            font-size: 1.16rem;
-        }
-
-        .card p,
-        .card li {
-            color: var(--muted);
-        }
-
-        .card ul {
-            margin-top: 12px;
-            padding-left: 18px;
-        }
-
-        .split {
-            display: grid;
-            grid-template-columns: minmax(0, 1.1fr) minmax(0, 0.9fr);
-            gap: 18px;
-            margin-bottom: 22px;
-        }
-
-        .legal-strip {
-            padding: 28px;
-        }
-
-        .legal-strip h2 {
-            margin-bottom: 10px;
-            font-size: 1.35rem;
-        }
-
-        .legal-strip p {
-            color: var(--muted);
-            max-width: 68ch;
-        }
-
-        .legal-links {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 12px;
-            margin-top: 18px;
-        }
-
         footer {
             padding-top: 12px;
             text-align: center;
@@ -309,8 +333,8 @@
         }
 
         @media (max-width: 980px) {
-            .hero,
             .grid,
+            .feature-grid,
             .split {
                 grid-template-columns: 1fr;
             }
@@ -324,8 +348,9 @@
 
             .hero,
             .card,
-            .workflow,
-            .legal-strip {
+            .timeline,
+            .legal-strip,
+            .trust-band {
                 padding: 22px;
             }
         }
@@ -346,117 +371,138 @@
         </nav>
 
         <section class="hero">
-            <div class="hero-copy">
-                <div class="eyebrow">AI-First Inspection Reporting</div>
-                <h1>Photo-first reporting for inspectors who move fast.</h1>
-                <p>
-                    DrawSight is a mobile-first inspection app built around the way field work actually happens:
-                    capture the property, review what matters, turn photos into draft findings, and keep control of the final report.
-                </p>
-                <div class="hero-chips">
-                    <span class="chip">Local-first</span>
-                    <span class="chip">Photo-heavy workflow</span>
-                    <span class="chip">AI-assisted drafting</span>
-                    <span class="chip">Inspector-reviewed output</span>
-                </div>
-                <div class="cta-row">
-                    <a class="btn btn-primary" href="privacy-policy.html">Privacy Policy</a>
-                    <a class="btn btn-secondary" href="terms-of-service.html">Terms of Service</a>
-                </div>
-                <p class="hero-note">
-                    Legal documents are linked here for store-review and public access, but this page is primarily a quick overview of the app.
-                </p>
+            <div class="app-badge" aria-hidden="true">DS</div>
+            <div class="eyebrow">AI-First Inspection Reporting</div>
+            <h1>Photo-first reporting built for solo inspectors.</h1>
+            <p>
+                DrawSight is designed around the real field workflow: capture the property, review what matters,
+                draft faster with AI, and stay in control of every finding before the final report goes out.
+            </p>
+            <div class="hero-chips">
+                <span class="chip">Photo-first workflow</span>
+                <span class="chip">Local-first storage</span>
+                <span class="chip">AI-assisted drafting</span>
+                <span class="chip">Inspector-reviewed output</span>
             </div>
-
-            <aside class="workflow" aria-label="Workflow summary">
-                <h2>What DrawSight is built to help with</h2>
-                <p>
-                    The app is focused on solo inspectors who want to stay fast in the field without giving up control over client-facing reports.
-                </p>
-                <ol>
-                    <li>Capture photos, notes, and findings directly on-site.</li>
-                    <li>Use AI to draft language and classify photo-heavy batches faster.</li>
-                    <li>Review, edit, and approve everything before export.</li>
-                    <li>Generate reports and backups without depending on a full always-on cloud stack.</li>
-                </ol>
-            </aside>
         </section>
 
         <section class="section-head">
-            <h2>Built around the real inspection flow</h2>
+            <h2>Built around the actual inspection process</h2>
             <p>
-                DrawSight is not trying to be a generic form app. It is built around job-site capture, review speed,
-                report clarity, and keeping the inspector in charge of the final result.
+                DrawSight is not trying to be a generic note app. It is built for inspectors who want to move quickly in the field,
+                keep reports organized, and use AI as a speed multiplier rather than a replacement for judgment.
             </p>
         </section>
 
-        <section class="grid" aria-label="Core features">
+        <section class="grid" aria-label="Core outcomes">
             <article class="card">
                 <div class="kicker">Capture</div>
-                <h3>Field-first workflow</h3>
+                <h3>Start with the property, not the paperwork</h3>
                 <p>
-                    The app is designed for property walk-throughs, quick note capture, photo organization, and report-building while the inspection is still fresh.
+                    The workflow begins with photos, findings, and on-site notes so inspectors can document the job while they are still inside the inspection.
+                </p>
+            </article>
+
+            <article class="card">
+                <div class="kicker">Draft</div>
+                <h3>Use AI where it saves real time</h3>
+                <p>
+                    AI helps with draft language, grouping, and photo-heavy review paths, especially when there is a large batch of findings to sort through quickly.
+                </p>
+            </article>
+
+            <article class="card">
+                <div class="kicker">Deliver</div>
+                <h3>Keep the inspector in charge of the final report</h3>
+                <p>
+                    DrawSight is built around review, editing, and approval before export so the final client-facing document still reflects the inspector's judgment.
+                </p>
+            </article>
+        </section>
+
+        <section class="timeline">
+            <h2>What the workflow is aiming to feel like</h2>
+            <ol>
+                <li>Set up the inspection fast and start capturing photos immediately.</li>
+                <li>Let batch workflows and AI-assisted drafting do the repetitive work.</li>
+                <li>Review, reroute, edit, and approve findings in a tighter loop before export.</li>
+                <li>Generate reports and backups without depending on a heavy always-on cloud stack.</li>
+            </ol>
+        </section>
+
+        <section class="section-head">
+            <h2>Where DrawSight is strongest right now</h2>
+            <p>
+                The product is most differentiated when it leans into field speed, photo-first capture, and turning inspection media into draft report structure faster.
+            </p>
+        </section>
+
+        <section class="feature-grid" aria-label="Feature focus">
+            <article class="card">
+                <div class="kicker">Photo Review</div>
+                <h3>Batch-heavy inspection flow</h3>
+                <p>
+                    DrawSight is built to handle photo-heavy inspections where review speed and organization matter as much as polished final output.
                 </p>
             </article>
 
             <article class="card">
                 <div class="kicker">AI Assist</div>
-                <h3>Draft faster, review harder</h3>
+                <h3>Draft text, route faster</h3>
                 <p>
-                    AI features help with text generation, routing, and photo-based drafting, but the inspector still reviews and approves what gets delivered.
+                    Optional AI tools support finding generation, classification, and other repetitive draft work while leaving the final decision with the inspector.
                 </p>
             </article>
 
             <article class="card">
-                <div class="kicker">Control</div>
-                <h3>Local-first and inspector-owned</h3>
+                <div class="kicker">Recovery</div>
+                <h3>Built with interrupted field work in mind</h3>
                 <p>
-                    Current builds are designed around on-device storage, user-controlled exports, and keeping workflow decisions close to the field.
+                    Export, backup, and recovery paths matter because inspections do not happen in perfect conditions. The app is designed around that reality.
                 </p>
             </article>
 
             <article class="card">
-                <div class="kicker">Output</div>
-                <h3>Reports, backups, and recovery</h3>
+                <div class="kicker">Local Control</div>
+                <h3>Closer to the device, closer to the job</h3>
                 <p>
-                    DrawSight focuses on getting from inspection photos to a polished report with export, backup, and recovery paths that feel dependable.
+                    Current builds keep inspection data primarily on-device and only send data out when the inspector enables AI or explicitly exports a file.
                 </p>
             </article>
         </section>
 
-        <section class="split" aria-label="Current product focus">
-            <article class="card">
-                <div class="kicker">Current Strengths</div>
-                <h3>Where the app is strongest right now</h3>
+        <section class="split" aria-label="Current release model">
+            <article class="trust-band">
+                <h2>Current release setup</h2>
+                <p>
+                    DrawSight is still in a practical early-stage product shape, so this site is intentionally honest about how the current build works.
+                </p>
                 <ul>
-                    <li>photo-first inspection capture and review</li>
-                    <li>AI-assisted drafting for findings and batches</li>
-                    <li>mobile-first usage for solo inspectors</li>
-                    <li>local-first handling of reports, exports, and backups</li>
+                    <li>inspection records are primarily stored on-device</li>
+                    <li>AI requests currently go directly to Anthropic when enabled</li>
+                    <li>current builds still use a user-supplied Anthropic API key</li>
+                    <li>reports, backups, and files leave the app only when the user chooses to export them</li>
                 </ul>
             </article>
 
-            <article class="card">
-                <div class="kicker">Release Reality</div>
-                <h3>What the current build does today</h3>
-                <ul>
-                    <li>stores inspection data primarily on-device</li>
-                    <li>sends AI requests directly to Anthropic when enabled</li>
-                    <li>uses a user-supplied Anthropic API key in current builds</li>
-                    <li>lets inspectors choose when reports and files leave the app</li>
-                </ul>
+            <article class="trust-band">
+                <h2>What that means for trust</h2>
+                <p>
+                    The legal pages are here for public review, but they are also part of the product story: local-first handling, explicit AI use,
+                    and more inspector control over what gets sent, stored, and shared.
+                </p>
             </article>
         </section>
 
         <section class="legal-strip">
             <h2>Legal and support links</h2>
             <p>
-                If you are here for app-store review, privacy review, or support, use the links below.
-                The legal pages are written around DrawSight's current release setup and should still be reviewed before a paid public launch.
+                Use the links below for privacy review, terms review, or public support. These documents are written around DrawSight's current release setup
+                and should still be reviewed before a paid public launch.
             </p>
             <div class="legal-links">
-                <a class="btn btn-primary" href="privacy-policy.html">Open Privacy Policy</a>
-                <a class="btn btn-secondary" href="terms-of-service.html">Open Terms of Service</a>
+                <a class="btn btn-primary" href="privacy-policy.html">Privacy Policy</a>
+                <a class="btn btn-secondary" href="terms-of-service.html">Terms of Service</a>
                 <a class="btn btn-secondary" href="https://github.com/e4developers/DrawSight/issues" rel="noreferrer">Support</a>
             </div>
         </section>
@@ -468,7 +514,7 @@
                 <a href="https://github.com/e4developers/DrawSight" rel="noreferrer">GitHub</a>
                 <a href="https://github.com/e4developers/DrawSight/issues" rel="noreferrer">Support</a>
             </div>
-            <div>DrawSight public legal pages.</div>
+            <div>DrawSight public product and legal pages.</div>
         </footer>
     </div>
 </body>
