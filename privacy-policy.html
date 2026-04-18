@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Privacy Policy - DrawSight</title>
-    <meta name="description" content="Privacy Policy for the DrawSight mobile inspection app.">
+    <meta name="description" content="Privacy Policy for DrawSight LLC and the current DrawSight mobile inspection app.">
     <style>
         * { box-sizing: border-box; margin: 0; padding: 0; }
         :root {
@@ -58,8 +58,7 @@
             box-shadow: 0 0 0 8px rgba(13, 105, 117, 0.08);
         }
         .nav-links { display: flex; flex-wrap: wrap; gap: 10px; }
-        .nav-link,
-        .chip {
+        .nav-link, .chip {
             display: inline-flex;
             align-items: center;
             gap: 8px;
@@ -70,11 +69,7 @@
             color: var(--muted);
             font-size: 0.94rem;
         }
-        .hero,
-        .toc,
-        .section-card,
-        .note,
-        .contact {
+        .hero, .toc, .section-card, .note, .contact {
             background: var(--surface);
             border: 1px solid rgba(255, 255, 255, 0.8);
             border-radius: var(--radius-lg);
@@ -98,7 +93,7 @@
             line-height: 0.94;
             letter-spacing: -0.04em;
         }
-        .lede { max-width: 70ch; color: var(--muted); font-size: 1.02rem; }
+        .lede { max-width: 72ch; color: var(--muted); font-size: 1.02rem; }
         .hero-meta { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 18px; }
         .layout {
             display: grid;
@@ -148,19 +143,22 @@
             <div class="nav-links">
                 <a class="nav-link" href="index.html">Home</a>
                 <a class="nav-link" href="terms-of-service.html">Terms</a>
-                <a class="nav-link" href="https://github.com/e4developers/DrawSight/issues" rel="noreferrer">Support</a>
+                <a class="nav-link" href="delete-account.html">Delete Account</a>
+                <a class="nav-link" href="mailto:support@drawsight.app">Support</a>
             </div>
         </nav>
 
         <header class="hero">
             <div class="eyebrow">Privacy Policy</div>
-            <h1>How DrawSight handles inspection data.</h1>
+            <h1>How DrawSight handles inspection data today.</h1>
             <p class="lede">
-                This policy describes how the current DrawSight mobile app handles reports, photos, notes, AI requests,
-                backups, logs, and related information. The wording is written around the app's real current local-first setup.
+                This policy is written around the current DrawSight app as it exists now: a local-first
+                mobile inspection reporting product provided by DrawSight LLC, with managed AI requests
+                in release builds, a managed address-lookup proxy, encrypted local records, optional
+                hosted diagnostics, and inspector-controlled exports.
             </p>
             <div class="hero-meta">
-                <span class="chip">Effective date: April 9, 2026</span>
+                <span class="chip">Effective date: April 15, 2026</span>
                 <span class="chip">Applies to current mobile builds</span>
             </div>
         </header>
@@ -174,11 +172,12 @@
                     <li><a href="#storage">How DrawSight stores data</a></li>
                     <li><a href="#third-party">Third-party services</a></li>
                     <li><a href="#use">How information is used</a></li>
-                    <li><a href="#exports">Backups, exports, and restore behavior</a></li>
+                    <li><a href="#exports">Backups, exports, logs, and restore behavior</a></li>
                     <li><a href="#retention">Retention and deletion</a></li>
                     <li><a href="#rights">Your choices</a></li>
                     <li><a href="#security">Security</a></li>
                     <li><a href="#children">Children's privacy</a></li>
+                    <li><a href="#gdpr-ccpa">GDPR / CCPA</a></li>
                     <li><a href="#changes">Policy changes</a></li>
                     <li><a href="#contact">Contact</a></li>
                 </ol>
@@ -188,13 +187,16 @@
                 <section class="section-card" id="overview">
                     <h2>1. Overview</h2>
                     <p>
-                        DrawSight is currently a local-first inspection reporting app. In normal use, inspection records,
-                        findings, notes, photos, and local recovery data are stored on the inspector's device rather than
-                        in a DrawSight-run cloud account.
+                        This Privacy Policy describes how DrawSight LLC, doing business as DrawSight,
+                        handles information in the current DrawSight app. DrawSight is currently a
+                        local-first inspection reporting app. In normal use, inspection records,
+                        findings, review history, photos, PDFs, and recovery data are stored on the
+                        inspector's device rather than in a DrawSight-hosted sync account.
                     </p>
                     <p>
-                        Current builds do not provide a first-party always-on hosted sync account platform. Some optional
-                        features do send information to third parties when the user chooses to use them, which is described below.
+                        Current builds do not provide a first-party always-on customer account platform,
+                        cloud sync, or client portal. Some optional features do send limited information to
+                        third parties when the user chooses to use them, which is described below.
                     </p>
                 </section>
 
@@ -202,53 +204,96 @@
                     <h2>2. Information handled by the app</h2>
                     <h3>Information you enter or create</h3>
                     <ul>
-                        <li>property addresses, inspection identifiers, and client-facing report content</li>
-                        <li>inspection photos, annotations, finding notes, and review edits</li>
+                        <li>property addresses, inspection identifiers, client names, and report content</li>
+                        <li>inspection photos, annotations, findings, comments, and review edits</li>
+                        <li>voice-note transcripts and dictated note content when the user chooses microphone / speech features</li>
+                        <li>interrupted Photo-First recovery state used to resume large AI photo batches</li>
                         <li>inspector profile details such as company name, license number, and signature image</li>
-                        <li>backup files and PDF reports created by the user</li>
+                        <li>report snapshots, finding audit history, PDF reports, and backup files created by the user</li>
                     </ul>
                     <h3>Locally stored technical data</h3>
                     <ul>
                         <li>workflow preferences and app settings stored on the device</li>
+                        <li>locally cached subscription, product-ownership, trial, or entitlement state when that build is configured to use it</li>
+                        <li>a device-specific installation identity used to look up managed beta-access or entitlement records in supported builds</li>
                         <li>local crash logs and local telemetry events kept on-device</li>
-                        <li>the user's Anthropic API key, stored through secure device storage</li>
+                        <li>backup-encryption key material stored through secure device storage</li>
+                        <li>when managed AI or managed geocoder routes are used, the DrawSight-managed Worker or hosting layer may temporarily process and store request metadata such as IP address, route, installation identity, and entitlement / rate-limit counters to prevent abuse and enforce access limits</li>
                     </ul>
                 </section>
 
                 <section class="section-card" id="storage">
                     <h2>3. How DrawSight stores data</h2>
                     <ul>
-                        <li>inspection data is primarily stored on the user's device</li>
-                        <li>current builds do not provide a DrawSight-run always-on sync account</li>
-                        <li>DrawSight does not automatically upload inspection records to a DrawSight server in current builds</li>
+                        <li>inspection records are primarily stored on the user's device in encrypted local storage</li>
+                        <li>stored inspection photos are sanitized so DrawSight's app copies do not retain EXIF or GPS metadata</li>
+                        <li>current builds do not automatically upload inspection records to a DrawSight sync service</li>
+                        <li>encrypted backup export is available when the user chooses to create one</li>
                     </ul>
                     <p>
-                        Because the app is local-first, the device owner typically controls most retention, deletion, export,
-                        and restore decisions directly.
+                        Because the app is local-first, the device owner typically controls most retention,
+                        deletion, export, and restore decisions directly.
                     </p>
                 </section>
 
                 <section class="section-card" id="third-party">
                     <h2>4. Third-party services</h2>
-                    <h3>Anthropic</h3>
+                    <h3>Managed AI processing</h3>
                     <p>
-                        When the user enables and uses AI features, relevant inspection photos, prompts, notes, and related
-                        request content may be sent directly from the app to Anthropic for processing. Current builds use the
-                        user's own Anthropic API key for these requests.
+                        When the user enables and uses AI features in managed builds, relevant inspection
+                        photos, prompts, notes, inspection type, selected operating-state context, and
+                        related request content are sent through
+                        DrawSight-managed Worker infrastructure to approved subprocessors, which may
+                        include Anthropic, for processing.
+                    </p>
+                    <p>
+                        Before some AI requests are sent, DrawSight may also run local on-device photo-quality
+                        screening to reject unreadable, too-dark, too-small, document-like, or selfie-like
+                        images before they are uploaded for AI processing. That local screening is intended
+                        to reduce bad AI calls and does not itself require sending the photo to a third-party
+                        provider.
                     </p>
                     <p>
                         Anthropic privacy information is available at
                         <a href="https://www.anthropic.com/privacy" target="_blank" rel="noreferrer">anthropic.com/privacy</a>.
                     </p>
-                    <h3>Address lookup provider</h3>
+                    <h3>Managed access identity and rate limiting</h3>
                     <p>
-                        When address autocomplete is used, typed property-address queries may be sent to the app's configured
-                        geocoding provider. Current app builds are configured to use OpenStreetMap Nominatim for that lookup path.
+                        Supported managed builds use a device-specific installation identity plus
+                        DrawSight-managed credentials to look up beta-access or entitlement records and,
+                        where configured, issue short-lived AI access tokens. The Worker or hosting layer
+                        may also store per-route request counters, entitlement-usage counters, and
+                        temporary request metadata such as IP address and route timing so it can rate-limit
+                        abuse, diagnose failures, and enforce access policies.
+                    </p>
+                    <h3>Address lookup</h3>
+                    <p>
+                        When address autocomplete is used, typed property-address queries are sent to the
+                        DrawSight-managed geocoder proxy and then to the configured provider for that
+                        deployment. In the current managed path, that provider is Mapbox.
+                    </p>
+                    <h3>Voice note transcription</h3>
+                    <p>
+                        When microphone / speech features are used, the app relies on operating-system
+                        speech-recognition services made available on the device platform to turn dictated
+                        notes into transcript text. On Apple platforms this may involve Apple speech /
+                        dictation services, and on Android this may involve Google or the device vendor's
+                        speech-recognition stack. The resulting transcript becomes part of the note
+                        content the user can edit, save, export, or later send through AI-assisted
+                        drafting flows.
+                    </p>
+                    <h3>Optional hosted diagnostics and analytics</h3>
+                    <p>
+                        Some builds may be configured to send redacted crash events to a hosted crash
+                        reporting service such as Sentry, and redacted product telemetry events to a
+                        configured analytics endpoint. These integrations are optional and deployment-specific.
+                        Hosted payloads are intended to exclude full inspection photos, full report bodies,
+                        raw file-system paths, direct contact data, and persistent record identifiers.
                     </p>
                     <h3>System share destinations</h3>
                     <p>
-                        When the user exports a report, backup, or log file, the content is sent only to the destination
-                        selected by the user through the device's share sheet or file picker.
+                        When the user exports a report, backup, or log file, the content is sent only to the
+                        destination selected by the user through the device's share sheet or file picker.
                     </p>
                 </section>
 
@@ -258,17 +303,18 @@
                     <ul>
                         <li>create and edit inspection reports</li>
                         <li>generate optional AI-assisted draft text and photo classifications</li>
-                        <li>export PDF reports and encrypted backups</li>
-                        <li>support local recovery, diagnostics, and product-quality improvements</li>
+                        <li>support report audit history, export, backup, and restore flows</li>
+                        <li>support local recovery, diagnostics, product-quality work, and optional hosted diagnostics if configured</li>
                     </ul>
                 </section>
 
                 <section class="section-card" id="exports">
-                    <h2>6. Backups, exports, and restore behavior</h2>
+                    <h2>6. Backups, exports, logs, and restore behavior</h2>
                     <ul>
-                        <li>backup files can contain sensitive inspection data, including photos, notes, names, and addresses</li>
-                        <li>PDF reports and files are exported only when the user chooses to export them</li>
+                        <li>backup files can contain sensitive inspection data, including photos, names, addresses, and notes</li>
+                        <li>PDF reports and logs are exported only when the user chooses to export them</li>
                         <li>once a file is shared or saved outside the app, its retention and security depend on the user and chosen destination</li>
+                        <li>some states currently allow only watermarked draft export in the app, not final export</li>
                     </ul>
                 </section>
 
@@ -277,13 +323,14 @@
                     <ul>
                         <li>inspection data remains on-device until edited, deleted, or removed with the app</li>
                         <li>backups and exports remain wherever the user saves or shares them</li>
-                        <li>logs remain local unless the user explicitly shares them</li>
-                        <li>current builds do not have a DrawSight cloud account system that requires an account-deletion flow</li>
+                        <li>local logs remain local unless the user shares them or hosted diagnostics are configured for that build</li>
+                        <li>current builds do not provide a DrawSight-hosted always-on sync account or client portal</li>
+                        <li>deployment-specific managed access records and optional hosted diagnostic records may still exist outside the device</li>
                     </ul>
                 </section>
 
                 <section class="section-card" id="rights">
-                    <h2>8. Your choices</h2>
+                    <h2>8. Your choices and privacy requests</h2>
                     <p>You generally control DrawSight data by:</p>
                     <ul>
                         <li>editing or deleting inspections inside the app</li>
@@ -292,53 +339,83 @@
                         <li>choosing whether to use AI-assisted features at all</li>
                     </ul>
                     <p>
-                        If you are a homeowner, resident, or client seeking access to inspection information, you should
-                        generally contact the inspection business that collected the data.
+                        If you are a homeowner, resident, or client seeking access to inspection
+                        information, you should generally contact the inspection business that collected
+                        the data.
+                    </p>
+                    <p>
+                        If you believe DrawSight itself controls personal information about you and you
+                        want to request access, correction, deletion, or a copy of that information,
+                        email <a href="mailto:support@drawsight.app">support@drawsight.app</a>. Because
+                        DrawSight is local-first, inspection businesses and device owners usually control
+                        most record content directly.
                     </p>
                 </section>
 
                 <section class="section-card" id="security">
                     <h2>9. Security</h2>
-                    <p>DrawSight uses reasonable measures intended to reduce risk, including:</p>
+                    <p>DrawSight uses measures intended to reduce risk, including:</p>
                     <ul>
-                        <li>local encrypted storage for certain sensitive app data</li>
-                        <li>secure device storage for the Anthropic API key</li>
+                        <li>encrypted local storage for inspection records</li>
+                        <li>secure device storage for local secrets and backup key material</li>
                         <li>encrypted backup export support</li>
-                        <li>HTTPS requests for third-party network calls</li>
+                        <li>HTTPS requests for managed AI, geocoder, and optional hosted services</li>
+                        <li>redaction of sensitive values in crash and telemetry payloads</li>
                     </ul>
                     <p>
-                        No device, network, or software environment can guarantee absolute security. Users remain responsible
-                        for securing their devices, external storage locations, and third-party provider accounts.
+                        No device, network, or software environment can guarantee absolute security.
+                        Users remain responsible for securing their devices, external storage locations,
+                        exported files, and any third-party accounts they control.
                     </p>
                 </section>
 
                 <section class="section-card" id="children">
                     <h2>10. Children's privacy</h2>
                     <p>
-                        DrawSight is intended for adult inspectors and inspection businesses. It is not directed to children.
+                        DrawSight is intended for adult inspectors and inspection businesses. It is not
+                        directed to children.
+                    </p>
+                </section>
+
+                <section class="section-card" id="gdpr-ccpa">
+                    <h2>11. GDPR / CCPA</h2>
+                    <p>
+                        DrawSight is designed for local-first storage on the inspector's device. If you
+                        are a client, tenant, prospective buyer, or resident seeking access, correction,
+                        deletion, or disclosure of inspection data, contact the inspection business that
+                        collected that information — they are the data controller for the inspection
+                        they performed. DrawSight LLC is a processor on their behalf to the extent any
+                        data leaves the device.
+                    </p>
+                    <p>
+                        Data retention depends on the device owner's exports, backups, deletions,
+                        managed-access records, and any deployment-specific hosted diagnostics that
+                        were enabled for that build. When AI features are used, approved providers
+                        process the submitted request solely to generate the requested result and do
+                        not retain submissions to train their own models.
+                    </p>
+                    <p>
+                        California residents: DrawSight LLC does not sell personal information. You may
+                        request access to or deletion of personal information DrawSight LLC holds about
+                        you by emailing <a href="mailto:support@drawsight.app">support@drawsight.app</a>.
                     </p>
                 </section>
 
                 <section class="section-card" id="changes">
-                    <h2>11. Policy changes</h2>
+                    <h2>12. Policy changes</h2>
                     <p>
-                        This Privacy Policy may be updated as DrawSight's features, providers, and release setup change.
-                        The latest version is reflected by the effective date at the top of this page.
+                        This Privacy Policy may be updated as DrawSight's features, providers, and release
+                        setup change. The latest version is reflected by the effective date at the top of
+                        this page.
                     </p>
                 </section>
 
                 <section class="contact" id="contact">
-                    <h2>12. Contact</h2>
-                    <p>If you have privacy questions about DrawSight, use the current public support route:</p>
-                    <p><strong>GitHub:</strong> <a href="https://github.com/e4developers/DrawSight" target="_blank" rel="noreferrer">github.com/e4developers/DrawSight</a></p>
-                    <p><strong>Support:</strong> <a href="https://github.com/e4developers/DrawSight/issues" target="_blank" rel="noreferrer">github.com/e4developers/DrawSight/issues</a></p>
-                </section>
-
-                <section class="note">
-                    <h2>Release note</h2>
+                    <h2>13. Contact</h2>
+                    <p>If you have privacy questions about DrawSight, contact DrawSight LLC at <a href="mailto:support@drawsight.app">support@drawsight.app</a>.</p>
                     <p>
-                        This policy is written to match DrawSight's current local-first release setup. It should still be
-                        reviewed for your business structure, jurisdiction, and final store-launch configuration.
+                        Do not send private inspection photos, client names, property addresses, or
+                        full report text unless DrawSight support asks you to use a specific secure path.
                     </p>
                 </section>
             </main>

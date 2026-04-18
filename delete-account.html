@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Delete Account - DrawSight</title>
+    <meta name="description" content="How to delete your DrawSight account and any associated inspection data.">
+    <style>
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        :root {
+            --bg: #f3ede3;
+            --bg-soft: #fbf7f1;
+            --surface: rgba(255, 251, 245, 0.9);
+            --text: #1f2933;
+            --muted: #5d6773;
+            --line: rgba(31, 41, 51, 0.12);
+            --accent: #0d6975;
+            --warm: #9b6332;
+            --shadow: 0 24px 56px rgba(31, 41, 51, 0.08);
+            --radius-lg: 24px;
+            --max: 960px;
+        }
+        body {
+            background:
+                radial-gradient(circle at top left, rgba(13, 105, 117, 0.11), transparent 28%),
+                radial-gradient(circle at top right, rgba(155, 99, 50, 0.11), transparent 26%),
+                linear-gradient(180deg, var(--bg-soft), var(--bg));
+            color: var(--text);
+            font-family: "Avenir Next", "Segoe UI", "Helvetica Neue", Arial, sans-serif;
+            line-height: 1.7;
+        }
+        a { color: var(--accent); text-decoration: none; }
+        a:hover { text-decoration: underline; }
+        .shell { width: min(var(--max), calc(100% - 32px)); margin: 0 auto; padding: 28px 0 60px; }
+        .nav {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            justify-content: space-between;
+            gap: 12px;
+            margin-bottom: 22px;
+        }
+        .brand {
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
+            font-family: "Avenir Next Condensed", "Avenir Next", "Segoe UI", sans-serif;
+            font-size: 1.08rem;
+            font-weight: 700;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+        }
+        .brand-mark {
+            width: 16px;
+            height: 16px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--accent), var(--warm));
+            box-shadow: 0 0 0 8px rgba(13, 105, 117, 0.08);
+        }
+        .nav-links { display: flex; flex-wrap: wrap; gap: 10px; }
+        .nav-link {
+            padding: 8px 14px;
+            border-radius: 999px;
+            border: 1px solid var(--line);
+            background: var(--surface);
+            color: var(--text);
+            font-size: 0.86rem;
+        }
+        .hero { padding: 40px 0 24px; }
+        .eyebrow {
+            font-size: 0.82rem;
+            letter-spacing: 0.16em;
+            text-transform: uppercase;
+            color: var(--warm);
+            font-weight: 700;
+        }
+        h1 {
+            font-size: clamp(2.1rem, 4vw, 3rem);
+            line-height: 1.1;
+            margin-top: 12px;
+            letter-spacing: -0.02em;
+        }
+        .lede {
+            margin-top: 14px;
+            color: var(--muted);
+            max-width: 62ch;
+            font-size: 1.04rem;
+        }
+        .hero-meta {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-top: 22px;
+        }
+        .chip {
+            padding: 8px 14px;
+            border-radius: 999px;
+            background: var(--surface);
+            border: 1px solid var(--line);
+            font-size: 0.86rem;
+        }
+        .section-card {
+            background: var(--surface);
+            border: 1px solid var(--line);
+            border-radius: var(--radius-lg);
+            box-shadow: var(--shadow);
+            padding: 28px;
+            margin: 20px 0;
+        }
+        .section-card h2 {
+            font-size: 1.22rem;
+            margin-bottom: 12px;
+            letter-spacing: -0.01em;
+        }
+        .section-card p { margin-bottom: 12px; }
+        .section-card p:last-child { margin-bottom: 0; }
+        .section-card ol, .section-card ul {
+            padding-left: 22px;
+            margin-bottom: 12px;
+        }
+        .section-card li { margin-bottom: 6px; }
+        .contact {
+            background: var(--surface);
+            border: 1px solid var(--line);
+            border-radius: var(--radius-lg);
+            padding: 24px;
+            margin-top: 28px;
+            box-shadow: var(--shadow);
+        }
+        code {
+            background: rgba(13, 105, 117, 0.08);
+            padding: 2px 6px;
+            border-radius: 4px;
+            font-size: 0.92em;
+        }
+    </style>
+</head>
+<body>
+    <div class="shell">
+        <nav class="nav" aria-label="Primary">
+            <a class="brand" href="index.html">
+                <span class="brand-mark" aria-hidden="true"></span>
+                <span>DrawSight</span>
+            </a>
+            <div class="nav-links">
+                <a class="nav-link" href="index.html">Home</a>
+                <a class="nav-link" href="privacy-policy.html">Privacy</a>
+                <a class="nav-link" href="terms-of-service.html">Terms</a>
+                <a class="nav-link" href="mailto:support@drawsight.app">Support</a>
+            </div>
+        </nav>
+
+        <header class="hero">
+            <div class="eyebrow">Account Deletion</div>
+            <h1>Delete your DrawSight account and data.</h1>
+            <p class="lede">
+                DrawSight is local-first: inspection records, photos, and reports live on your
+                device, not in a cloud account. "Deleting your account" means two things —
+                clearing the data on your device, and asking DrawSight LLC to remove any
+                managed-access records (subscription state, installation ID, AI usage counters)
+                we hold for you server-side.
+            </p>
+            <div class="hero-meta">
+                <span class="chip">Operated by DrawSight LLC</span>
+                <span class="chip">Applies to current mobile builds</span>
+            </div>
+        </header>
+
+        <section class="section-card">
+            <h2>Option 1: In-app deletion (clears device data)</h2>
+            <p>This removes every inspection, finding, photo, and report stored on the
+            device by DrawSight.</p>
+            <ol>
+                <li>Open DrawSight on the device.</li>
+                <li>For each inspection you want removed, open it and use the in-app delete
+                action on the inspection screen.</li>
+                <li>To wipe everything at once — including the encrypted local database —
+                uninstall DrawSight and clear the app's storage through the device's system
+                settings. On Android: Settings → Apps → DrawSight → Storage → Clear storage.
+                On iOS: delete the app, which removes its sandboxed data.</li>
+            </ol>
+            <p>If you have exported encrypted <code>.dsbk</code> backup files outside the
+            app, those are yours to manage. DrawSight has no access to them.</p>
+        </section>
+
+        <section class="section-card">
+            <h2>Option 2: Server-side deletion request</h2>
+            <p>If you want DrawSight LLC to delete the managed-access data we hold for you
+            — installation ID, subscription / entitlement state, AI usage counters, any
+            hosted diagnostic events tied to your device — email us:</p>
+            <p><a href="mailto:support@drawsight.app?subject=Account%20Deletion%20Request">support@drawsight.app</a></p>
+            <p>Include the email address used for your subscription (if any) and the
+            device's installation ID. You can find the installation ID inside the app at
+            Settings → Subscription &amp; Access. We will process the request within 30
+            days and reply when complete.</p>
+        </section>
+
+        <section class="section-card">
+            <h2>What gets deleted</h2>
+            <ul>
+                <li>All inspection records, findings, photos, annotations, and report
+                snapshots stored on the device (Option 1).</li>
+                <li>Managed-access records associated with your installation ID and email,
+                including cached entitlement state and AI usage counters (Option 2).</li>
+                <li>Hosted crash and diagnostic events tied to your installation ID, if
+                any were sent (Option 2).</li>
+            </ul>
+        </section>
+
+        <section class="section-card">
+            <h2>What may be retained</h2>
+            <p>DrawSight LLC may retain limited records to satisfy legal, tax, accounting,
+            fraud-prevention, or billing-reconciliation obligations. This is typically
+            minimal invoice-level metadata from the App Store or Google Play — it does not
+            include your inspection content. Anonymized operational metrics that cannot be
+            tied back to you may also be retained.</p>
+            <p>Subscription cancellation is handled by Apple or Google. Cancel your
+            subscription in the App Store or Google Play before requesting deletion if you
+            do not want it to auto-renew.</p>
+        </section>
+
+        <section class="contact">
+            <h2>Questions</h2>
+            <p>Email <a href="mailto:support@drawsight.app">support@drawsight.app</a>. Do
+            not include private inspection photos, client names, or property addresses in
+            deletion-request emails — we do not need them to process the request.</p>
+        </section>
+    </div>
+</body>
+</html>
