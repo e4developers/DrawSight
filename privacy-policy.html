@@ -158,7 +158,7 @@
                 hosted diagnostics, and inspector-controlled exports.
             </p>
             <div class="hero-meta">
-                <span class="chip">Effective date: April 15, 2026</span>
+                <span class="chip">Effective date: April 24, 2026</span>
                 <span class="chip">Applies to current mobile builds</span>
             </div>
         </header>
@@ -226,7 +226,8 @@
                     <h2>3. How DrawSight stores data</h2>
                     <ul>
                         <li>inspection records are primarily stored on the user's device in encrypted local storage</li>
-                        <li>stored inspection photos are sanitized so DrawSight's app copies do not retain EXIF or GPS metadata</li>
+                        <li>the working copy of each inspection photo is re-encoded so the copy used in the AI pipeline and in exported reports does not retain EXIF or GPS metadata</li>
+                        <li>DrawSight also preserves a byte-identical original of each inspection photo on the device so the inspector retains an unaltered evidentiary record; that original file retains whatever EXIF and GPS metadata the camera or source image included, and it stays on-device unless the inspector exports or shares it</li>
                         <li>current builds do not automatically upload inspection records to a DrawSight sync service</li>
                         <li>encrypted backup export is available when the user chooses to create one</li>
                     </ul>
@@ -327,6 +328,24 @@
                         <li>current builds do not provide a DrawSight-hosted always-on sync account or client portal</li>
                         <li>deployment-specific managed access records and optional hosted diagnostic records may still exist outside the device</li>
                     </ul>
+                    <p>
+                        In managed builds, the DrawSight Worker stores limited server-side records tied
+                        to managed-access, billing, and abuse-prevention. Those records expire on
+                        fixed schedules:
+                    </p>
+                    <ul>
+                        <li>product-telemetry / usage-event records: retained for 60 days</li>
+                        <li>store-purchase verification events used to link a purchase to an
+                            entitlement: retained for 45 days</li>
+                        <li>admin-audit events tied to administrative or support access (may include
+                            IP address, user-agent, and subscriber identity): retained for 90 days</li>
+                    </ul>
+                    <p>
+                        Entitlement records themselves persist for the lifetime of the active
+                        managed-access subscription plus a short reconciliation window after it
+                        ends. Rate-limit counters are short-lived and roll over on their own
+                        windows; they are not a long-term retention surface.
+                    </p>
                 </section>
 
                 <section class="section-card" id="rights">
