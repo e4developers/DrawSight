@@ -168,19 +168,40 @@
 
         <section class="section-card">
             <h2>Option 1: In-app deletion (clears device data)</h2>
-            <p>This removes every inspection, finding, photo, and report stored on the
-            device by DrawSight.</p>
+            <p>The in-app "Delete account &amp; all data" flow wipes every local
+            surface the app owns in a single step — no uninstall required.</p>
             <ol>
                 <li>Open DrawSight on the device.</li>
-                <li>For each inspection you want removed, open it and use the in-app delete
-                action on the inspection screen.</li>
-                <li>To wipe everything at once — including the encrypted local database —
-                uninstall DrawSight and clear the app's storage through the device's system
-                settings. On Android: Settings → Apps → DrawSight → Storage → Clear storage.
-                On iOS: delete the app, which removes its sandboxed data.</li>
+                <li>Go to <strong>Settings → Legal → Delete account &amp; all data</strong>.</li>
+                <li>Confirm the first warning dialog, then type <code>DELETE</code> in the
+                second dialog to confirm. The app will erase every local surface and
+                summarize what was cleared.</li>
             </ol>
-            <p>If you have exported encrypted <code>.dsbk</code> backup files outside the
-            app, those are yours to manage. DrawSight has no access to them.</p>
+            <p>What the in-app flow erases:</p>
+            <ul>
+                <li>every inspection plus all cascading data (sections, subsections,
+                findings, photos, annotations, and per-snapshot audit records);</li>
+                <li>the byte-identical <em>original</em> copy of every inspection photo
+                that DrawSight preserves for evidentiary fidelity;</li>
+                <li>thumbnails and working copies of every inspection photo;</li>
+                <li>every exported <code>.dsbk</code> backup file the app created under its
+                own documents directory (files you exported to Google Drive, Files,
+                iCloud, or any other destination are outside the app's reach — delete
+                those through that destination);</li>
+                <li>the partial-restore staging directory used during backup imports;</li>
+                <li>the comment-template library, inspector-profile record, My Signals
+                dictionary (on-device hand-signal training data), finding-version history,
+                and the AI retry queue;</li>
+                <li>the encrypted local database file plus its write-ahead-log, shared-memory
+                and rollback-journal companions;</li>
+                <li>telemetry event logs and crash-breadcrumb logs stored locally;</li>
+                <li>app preferences (onboarding state, AI-consent record, subscription
+                cache, tutorial-seen flags) and secure-storage entries (installation
+                identifier, database encryption key, managed-access tokens).</li>
+            </ul>
+            <p>If the app is missing or the device refuses to open it, the system-level
+            uninstall path still works: delete the app on iOS, or Settings → Apps →
+            DrawSight → Storage → Clear storage on Android.</p>
         </section>
 
         <section class="section-card">
@@ -198,12 +219,17 @@
         <section class="section-card">
             <h2>What gets deleted</h2>
             <ul>
-                <li>All inspection records, findings, photos, annotations, and report
-                snapshots stored on the device (Option 1).</li>
-                <li>Managed-access records associated with your installation ID and email,
-                including cached entitlement state and AI usage counters (Option 2).</li>
-                <li>Hosted crash and diagnostic events tied to your installation ID, if
-                any were sent (Option 2).</li>
+                <li>Every on-device surface named in Option 1 above: inspection
+                content, preserved original photos, working photos and thumbnails,
+                local backups and restore staging, the comment-template library,
+                inspector-profile record, My Signals dictionary, finding-version
+                history, AI retry queue, encrypted database, telemetry and crash
+                logs, app preferences, and secure-storage entries.</li>
+                <li>Managed-access records associated with your installation ID and
+                email, including cached entitlement state and AI usage counters
+                (Option 2).</li>
+                <li>Hosted crash and diagnostic events tied to your installation ID,
+                if any were sent (Option 2).</li>
             </ul>
         </section>
 
