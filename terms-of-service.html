@@ -3,377 +3,233 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Terms of Service - DrawSight</title>
+    <title>Terms of Service — DrawSight</title>
     <meta name="description" content="Terms of Service for DrawSight LLC and the current DrawSight mobile inspection app.">
-    <style>
-        * { box-sizing: border-box; margin: 0; padding: 0; }
-        :root {
-            --bg: #f3ede3;
-            --bg-soft: #fbf7f1;
-            --surface: rgba(255, 251, 245, 0.9);
-            --text: #1f2933;
-            --muted: #5d6773;
-            --line: rgba(31, 41, 51, 0.12);
-            --accent: #0d6975;
-            --warm: #9b6332;
-            --warning: #b65f43;
-            --shadow: 0 24px 56px rgba(31, 41, 51, 0.08);
-            --radius-lg: 24px;
-            --max: 1160px;
-        }
-        body {
-            background:
-                radial-gradient(circle at top left, rgba(13, 105, 117, 0.11), transparent 28%),
-                radial-gradient(circle at top right, rgba(155, 99, 50, 0.11), transparent 26%),
-                linear-gradient(180deg, var(--bg-soft), var(--bg));
-            color: var(--text);
-            font-family: "Avenir Next", "Segoe UI", "Helvetica Neue", Arial, sans-serif;
-            line-height: 1.7;
-        }
-        a { color: var(--accent); text-decoration: none; }
-        a:hover { text-decoration: underline; }
-        .shell { width: min(var(--max), calc(100% - 32px)); margin: 0 auto; padding: 28px 0 60px; }
-        .nav {
-            display: flex;
-            flex-wrap: wrap;
-            align-items: center;
-            justify-content: space-between;
-            gap: 12px;
-            margin-bottom: 22px;
-        }
-        .brand {
-            display: inline-flex;
-            align-items: center;
-            gap: 12px;
-            font-family: "Avenir Next Condensed", "Avenir Next", "Segoe UI", sans-serif;
-            font-size: 1.08rem;
-            font-weight: 700;
-            letter-spacing: 0.08em;
-            text-transform: uppercase;
-        }
-        .brand-mark {
-            width: 16px;
-            height: 16px;
-            border-radius: 50%;
-            background: linear-gradient(135deg, var(--accent), var(--warm));
-            box-shadow: 0 0 0 8px rgba(13, 105, 117, 0.08);
-        }
-        .nav-links { display: flex; flex-wrap: wrap; gap: 10px; }
-        .nav-link, .chip {
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-            padding: 10px 14px;
-            border: 1px solid var(--line);
-            border-radius: 999px;
-            background: rgba(255, 255, 255, 0.56);
-            color: var(--muted);
-            font-size: 0.94rem;
-        }
-        .hero, .toc, .section-card, .note, .contact, .warning, .important {
-            background: var(--surface);
-            border: 1px solid rgba(255, 255, 255, 0.8);
-            border-radius: var(--radius-lg);
-            box-shadow: var(--shadow);
-            backdrop-filter: blur(14px);
-        }
-        .hero { padding: 34px; margin-bottom: 22px; }
-        .eyebrow {
-            display: inline-flex;
-            margin-bottom: 16px;
-            color: var(--warm);
-            font-size: 0.82rem;
-            font-weight: 700;
-            letter-spacing: 0.12em;
-            text-transform: uppercase;
-        }
-        h1 {
-            margin-bottom: 12px;
-            font-family: "Avenir Next Condensed", "Avenir Next", "Segoe UI", sans-serif;
-            font-size: clamp(2.2rem, 5vw, 3.6rem);
-            line-height: 0.94;
-            letter-spacing: -0.04em;
-        }
-        .lede { max-width: 72ch; color: var(--muted); font-size: 1.02rem; }
-        .hero-meta { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 18px; }
-        .layout {
-            display: grid;
-            grid-template-columns: minmax(0, 280px) minmax(0, 1fr);
-            gap: 20px;
-            align-items: start;
-        }
-        .toc { position: sticky; top: 18px; padding: 22px; }
-        .toc h2 {
-            margin-bottom: 12px;
-            font-size: 1rem;
-            color: var(--warm);
-            text-transform: uppercase;
-            letter-spacing: 0.08em;
-        }
-        .toc ol { padding-left: 18px; }
-        .toc li + li { margin-top: 8px; }
-        .toc a { color: var(--muted); }
-        .content { display: grid; gap: 18px; }
-        .section-card, .important, .warning, .note, .contact { padding: 26px; }
-        .section-card h2, .important h2, .warning h2, .note h2, .contact h2 {
-            margin-bottom: 12px;
-            font-size: 1.34rem;
-        }
-        .section-card p, .section-card li, .important p, .important li,
-        .warning p, .warning li, .note p, .contact p { color: var(--muted); }
-        .section-card ul, .important ul, .warning ul, .section-card ol {
-            margin-top: 10px;
-            padding-left: 18px;
-        }
-        .important { border-left: 5px solid var(--warm); }
-        .warning { border-left: 5px solid var(--warning); }
-        .contact { border-left: 5px solid var(--accent); }
-        .note { border-left: 5px solid var(--warm); }
-        @media (max-width: 980px) {
-            .layout { grid-template-columns: 1fr; }
-            .toc { position: static; }
-        }
-        @media (max-width: 640px) {
-            .shell { width: min(var(--max), calc(100% - 20px)); padding-top: 18px; }
-            .hero, .toc, .section-card, .important, .warning, .note, .contact { padding: 20px; }
-        }
-    </style>
+    <meta name="theme-color" content="#0C1322">
+    <link rel="canonical" href="https://drawsight.app/terms-of-service.html">
+    <link rel="icon" type="image/png" href="assets/logo.png">
+    <link rel="apple-touch-icon" href="assets/logo.png">
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <div class="shell">
         <nav class="nav" aria-label="Primary">
-            <a class="brand" href="index.html">
-                <span class="brand-mark" aria-hidden="true"></span>
+            <a class="brand" href="index.html" aria-label="DrawSight home">
+                <img src="assets/logo.png" alt="" aria-hidden="true">
                 <span>DrawSight</span>
             </a>
             <div class="nav-links">
-                <a class="nav-link" href="index.html">Home</a>
-                <a class="nav-link" href="privacy-policy.html">Privacy</a>
-                <a class="nav-link" href="delete-account.html">Delete Account</a>
-                <a class="nav-link" href="mailto:support@drawsight.app">Support</a>
+                <a href="index.html">Home</a>
+                <a href="privacy-policy.html">Privacy</a>
+                <a href="delete-account.html">Delete account</a>
+                <a href="mailto:support@drawsight.app">Support</a>
             </div>
         </nav>
 
-        <header class="hero">
-            <div class="eyebrow">Terms of Service</div>
-            <h1>Terms for using DrawSight.</h1>
-            <p class="lede">
-                These terms are written around the app as it currently exists: a local-first mobile
-                inspection reporting tool operated by DrawSight LLC, with optional AI assistance,
-                managed third-party services in some builds, encrypted local records,
-                inspector-controlled exports, and subscription-gated access to paid features.
-            </p>
-            <div class="hero-meta">
-                <span class="chip">Effective date: April 29, 2026</span>
-                <span class="chip">Applies to current mobile builds</span>
-            </div>
-        </header>
-
-        <div class="layout">
-            <aside class="toc" aria-label="Contents">
-                <h2>Contents</h2>
-                <ol>
-                    <li><a href="#acceptance">Acceptance of terms</a></li>
-                    <li><a href="#service">Description of service</a></li>
-                    <li><a href="#release">Current release setup</a></li>
-                    <li><a href="#subscription">Subscriptions, trials, and access after lapse</a></li>
-                    <li><a href="#permitted">Permitted use</a></li>
-                    <li><a href="#state-support">State support and export limits</a></li>
-                    <li><a href="#ai">AI features and responsibility</a></li>
-                    <li><a href="#third-party">Third-party services</a></li>
-                    <li><a href="#content">User content, exports, and backups</a></li>
-                    <li><a href="#prohibited">Prohibited use</a></li>
-                    <li><a href="#availability">Availability and disclaimer</a></li>
-                    <li><a href="#liability">Limitation of liability</a></li>
-                    <li><a href="#professional">Professional use reminder</a></li>
-                    <li><a href="#changes">Changes and termination</a></li>
-                    <li><a href="#law">Governing law</a></li>
-                    <li><a href="#contact">Contact</a></li>
-                </ol>
+        <div class="legal-page">
+            <aside class="legal-toc" aria-label="Contents">
+                <span class="eyebrow">Terms of Service</span>
+                <ul>
+                    <li><a href="#acceptance">1. Acceptance</a></li>
+                    <li><a href="#service">2. Description of service</a></li>
+                    <li><a href="#release">3. Current release setup</a></li>
+                    <li><a href="#subscription">4. Subscriptions + trials</a></li>
+                    <li><a href="#permitted">5. Permitted use</a></li>
+                    <li><a href="#state-support">6. State support + export</a></li>
+                    <li><a href="#ai">7. AI features + responsibility</a></li>
+                    <li><a href="#third-party">8. Third-party services</a></li>
+                    <li><a href="#content">9. User content + exports</a></li>
+                    <li><a href="#prohibited">10. Prohibited use</a></li>
+                    <li><a href="#availability">11. Availability + warranty</a></li>
+                    <li><a href="#liability">12. Limitation of liability</a></li>
+                    <li><a href="#professional">13. Professional use</a></li>
+                    <li><a href="#changes">14. Changes + termination</a></li>
+                    <li><a href="#law">15. Governing law</a></li>
+                    <li><a href="#contact">16. Contact</a></li>
+                </ul>
             </aside>
 
-            <main class="content">
-                <section class="section-card" id="acceptance">
-                    <h2>1. Acceptance of terms</h2>
-                    <p>
-                        These Terms are between you and DrawSight LLC, doing business as DrawSight.
-                        By downloading, installing, or using DrawSight, you agree to these Terms of
-                        Service. If you do not agree to these Terms, do not use the app.
-                    </p>
-                </section>
+            <main class="legal-body">
+                <h1>Terms for using DrawSight.</h1>
+                <span class="effective">Effective date: April 29, 2026</span>
 
-                <section class="section-card" id="service">
-                    <h2>2. Description of service</h2>
-                    <p>DrawSight is a mobile inspection reporting app that may let users:</p>
-                    <ul>
-                        <li>create, edit, and organize inspection jobs, findings, and reports</li>
-                        <li>capture, review, and export inspection photos</li>
-                        <li>generate optional AI-assisted draft text and photo classifications</li>
-                        <li>create watermarked draft PDFs, and where supported, final PDFs</li>
-                        <li>create encrypted backup files and restore local data</li>
-                    </ul>
-                </section>
+                <p>
+                    These terms are written around the app as it currently exists: a local-first mobile
+                    inspection reporting tool operated by DrawSight LLC, with optional AI assistance,
+                    managed third-party services in some builds, encrypted local records,
+                    inspector-controlled exports, and subscription-gated access to paid features.
+                </p>
 
-                <section class="section-card" id="release">
-                    <h2>3. Current release setup</h2>
-                    <ul>
-                        <li>DrawSight is currently a local-first app.</li>
-                        <li>Current builds do not provide a DrawSight-hosted always-on sync account platform or client portal.</li>
-                        <li>Release builds use a managed AI gateway and managed address-lookup proxy.</li>
-                        <li>Managed builds may use a device-specific installation identifier to look up trial, subscription, or entitlement state and issue short-lived AI access tokens.</li>
-                        <li>Large AI photo batches are checkpointed locally so interrupted work can resume later.</li>
-                        <li>Some builds may also be configured with hosted crash reporting, hosted telemetry services, and optional voice-note transcription through operating-system speech recognition.</li>
-                    </ul>
-                </section>
+                <h2 id="acceptance">1. Acceptance of terms</h2>
+                <p>
+                    These Terms are between you and DrawSight LLC, doing business as DrawSight.
+                    By downloading, installing, or using DrawSight, you agree to these Terms of
+                    Service. If you do not agree to these Terms, do not use the app.
+                </p>
 
-                <section class="section-card" id="subscription">
-                    <h2>4. Subscriptions, trials, and access after lapse</h2>
-                    <p>
-                        If offered through the App Store or Google Play, DrawSight is sold as a
-                        monthly auto-renewing subscription and may include a 7-day free trial.
-                    </p>
-                    <ul>
-                        <li>subscriptions renew through the platform until canceled by the user</li>
-                        <li>billing, trial conversion timing, and renewal timing are controlled by Apple or Google for the platform purchase you use</li>
-                        <li>refund requests should be submitted through Apple or Google first, subject to their policies and applicable law</li>
-                        <li>if a trial ends or a subscription lapses, AI features may stop, new inspections may be blocked, and unfinished inspections may no longer be completed or final-exported</li>
-                        <li>completed inspections remain viewable, and previously completed reports may remain accessible or re-exportable in read-only historical access mode</li>
-                    </ul>
-                </section>
+                <h2 id="service">2. Description of service</h2>
+                <p>DrawSight is a mobile inspection reporting app that may let users:</p>
+                <ul>
+                    <li>create, edit, and organize inspection jobs, findings, and reports</li>
+                    <li>capture, review, and export inspection photos</li>
+                    <li>generate optional AI-assisted draft text and photo classifications</li>
+                    <li>create watermarked draft PDFs, and where supported, final PDFs</li>
+                    <li>create encrypted backup files and restore local data</li>
+                </ul>
 
-                <section class="section-card" id="permitted">
-                    <h2>5. Permitted use</h2>
-                    <ul>
-                        <li>You may use DrawSight only for lawful inspection, field-reporting, or related workflows.</li>
-                        <li>You must comply with applicable laws, licensing rules, standards of practice, and client obligations.</li>
-                        <li>If you use DrawSight for a business, you represent that you have authority to do so.</li>
-                    </ul>
-                </section>
+                <h2 id="release">3. Current release setup</h2>
+                <ul>
+                    <li>DrawSight is currently a local-first app.</li>
+                    <li>Current builds do not provide a DrawSight-hosted always-on sync account platform or client portal.</li>
+                    <li>Release builds use a managed AI gateway and managed address-lookup proxy.</li>
+                    <li>Managed builds may use a device-specific installation identifier to look up trial, subscription, or entitlement state and issue short-lived AI access tokens.</li>
+                    <li>Large AI photo batches are checkpointed locally so interrupted work can resume later.</li>
+                    <li>Some builds may also be configured with hosted crash reporting, hosted telemetry services, and optional voice-note transcription through operating-system speech recognition.</li>
+                </ul>
 
-                <section class="important" id="state-support">
-                    <h2>6. State support and export limits</h2>
-                    <p>
-                        DrawSight does not currently offer final state-compliant export in every jurisdiction.
-                    </p>
-                    <ul>
-                        <li>North Carolina is the current narrow full-support launch state.</li>
-                        <li>Other states are currently draft-assist, guided wording, or fallback only in the app.</li>
-                        <li>Where state support is still guided or generic fallback only, final export may stay locked and only a watermarked draft may be available.</li>
-                        <li>You are responsible for understanding whether DrawSight's current output is appropriate for your jurisdiction and use case.</li>
-                    </ul>
-                </section>
+                <h2 id="subscription">4. Subscriptions, trials, and access after lapse</h2>
+                <p>
+                    If offered through the App Store or Google Play, DrawSight is sold as a
+                    monthly auto-renewing subscription and may include a 7-day free trial.
+                </p>
+                <ul>
+                    <li>subscriptions renew through the platform until canceled by the user</li>
+                    <li>billing, trial conversion timing, and renewal timing are controlled by Apple or Google for the platform purchase you use</li>
+                    <li>refund requests should be submitted through Apple or Google first, subject to their policies and applicable law</li>
+                    <li>if a trial ends or a subscription lapses, AI features may stop, new inspections may be blocked, and unfinished inspections may no longer be completed or final-exported</li>
+                    <li>completed inspections remain viewable, and previously completed reports may remain accessible or re-exportable in read-only historical access mode</li>
+                </ul>
 
-                <section class="important" id="ai">
-                    <h2>7. AI features and inspector responsibility</h2>
-                    <p><strong>Important:</strong> AI output in DrawSight is a draft aid only.</p>
-                    <ul>
-                        <li>You are responsible for reviewing all AI-generated text, routing, and classifications.</li>
-                        <li>You are responsible for final severity, repair language, and report conclusions.</li>
-                        <li>AI-assisted draft findings must still be reviewed before a PDF can be shared from the app.</li>
-                        <li>You must verify that every client-facing report is accurate and appropriate before delivery.</li>
-                        <li>DrawSight does not guarantee that AI output is correct, complete, or suitable for your workflow.</li>
-                    </ul>
-                </section>
+                <h2 id="permitted">5. Permitted use</h2>
+                <ul>
+                    <li>You may use DrawSight only for lawful inspection, field-reporting, or related workflows.</li>
+                    <li>You must comply with applicable laws, licensing rules, standards of practice, and client obligations.</li>
+                    <li>If you use DrawSight for a business, you represent that you have authority to do so.</li>
+                </ul>
 
-                <section class="section-card" id="third-party">
-                    <h2>8. Third-party services</h2>
-                    <p>Some DrawSight features rely on third parties, including:</p>
-                    <ul>
-                        <li>approved AI providers, which may include Anthropic, for optional AI processing</li>
-                        <li>the managed address-lookup provider path used by the DrawSight Worker, currently Mapbox in managed builds</li>
-                        <li>optional hosted crash reporting or analytics endpoints if configured for a given build</li>
-                        <li>operating-system share targets and file destinations selected by the user</li>
-                    </ul>
-                    <p>
-                        Your use of those services may also be governed by their own terms and privacy
-                        policies. You are responsible for charges, limits, or suspensions associated with
-                        your own external accounts, where applicable.
-                    </p>
-                </section>
+                <h2 id="state-support">6. State support and export limits</h2>
+                <p>
+                    DrawSight does not currently offer final state-compliant export in every jurisdiction.
+                </p>
+                <ul>
+                    <li>North Carolina is the current narrow full-support launch state.</li>
+                    <li>Other states are currently draft-assist, guided wording, or fallback only in the app.</li>
+                    <li>Where state support is still guided or generic fallback only, final export may stay locked and only a watermarked draft may be available.</li>
+                    <li>You are responsible for understanding whether DrawSight's current output is appropriate for your jurisdiction and use case.</li>
+                </ul>
 
-                <section class="section-card" id="content">
-                    <h2>9. User content, exports, and backups</h2>
-                    <ul>
-                        <li>You are responsible for the inspection data, photos, notes, and reports you create or store in DrawSight.</li>
-                        <li>You are responsible for safeguarding exported reports, backup files, and any external accounts you control.</li>
-                        <li>You must have the right to collect and use any photos, names, notes, and property details you place into the app.</li>
-                    </ul>
-                </section>
+                <h2 id="ai">7. AI features and inspector responsibility</h2>
+                <p><strong>Important:</strong> AI output in DrawSight is a draft aid only.</p>
+                <ul>
+                    <li>You are responsible for reviewing all AI-generated text, routing, and classifications.</li>
+                    <li>You are responsible for final severity, repair language, and report conclusions.</li>
+                    <li>AI-assisted draft findings must still be reviewed before a PDF can be shared from the app.</li>
+                    <li>You must verify that every client-facing report is accurate and appropriate before delivery.</li>
+                    <li>DrawSight does not guarantee that AI output is correct, complete, or suitable for your workflow.</li>
+                </ul>
 
-                <section class="section-card" id="prohibited">
-                    <h2>10. Prohibited use</h2>
-                    <p>You may not use DrawSight to:</p>
-                    <ul>
-                        <li>break the law or violate another person's rights</li>
-                        <li>submit content you do not have authority to use</li>
-                        <li>attempt to bypass security, misuse the app, or interfere with related services</li>
-                        <li>use the app in a fraudulent, deceptive, or misleading way</li>
-                        <li>reverse engineer, redistribute, or resell the app except where law clearly permits otherwise</li>
-                    </ul>
-                </section>
+                <h2 id="third-party">8. Third-party services</h2>
+                <p>Some DrawSight features rely on third parties, including:</p>
+                <ul>
+                    <li>approved AI providers, which may include Anthropic, for optional AI processing</li>
+                    <li>the managed address-lookup provider path used by the DrawSight Worker, currently Mapbox in managed builds</li>
+                    <li>optional hosted crash reporting or analytics endpoints if configured for a given build</li>
+                    <li>operating-system share targets and file destinations selected by the user</li>
+                </ul>
+                <p>
+                    Your use of those services may also be governed by their own terms and privacy
+                    policies. You are responsible for charges, limits, or suspensions associated with
+                    your own external accounts, where applicable.
+                </p>
 
-                <section class="section-card" id="availability">
-                    <h2>11. Availability and warranty disclaimer</h2>
-                    <p>
-                        DrawSight is provided on an "as is" and "as available" basis to the maximum
-                        extent permitted by law. We do not guarantee uninterrupted availability, error-free
-                        operation, complete data preservation, or compatibility with every device,
-                        jurisdiction, provider, or workflow.
-                    </p>
-                </section>
+                <h2 id="content">9. User content, exports, and backups</h2>
+                <ul>
+                    <li>You are responsible for the inspection data, photos, notes, and reports you create or store in DrawSight.</li>
+                    <li>You are responsible for safeguarding exported reports, backup files, and any external accounts you control.</li>
+                    <li>You must have the right to collect and use any photos, names, notes, and property details you place into the app.</li>
+                </ul>
 
-                <section class="warning" id="liability">
-                    <h2>12. Limitation of liability</h2>
-                    <p><strong>Important:</strong> To the maximum extent permitted by law:</p>
-                    <ul>
-                        <li>we are not liable for indirect, incidental, special, consequential, or punitive damages</li>
-                        <li>we are not liable for lost data, lost business, lost profits, or professional liability arising from use of the app</li>
-                        <li>we are not responsible for third-party provider outages, data errors, account issues, or regulatory mismatches outside DrawSight's direct control</li>
-                    </ul>
-                </section>
+                <h2 id="prohibited">10. Prohibited use</h2>
+                <p>You may not use DrawSight to:</p>
+                <ul>
+                    <li>break the law or violate another person's rights</li>
+                    <li>submit content you do not have authority to use</li>
+                    <li>attempt to bypass security, misuse the app, or interfere with related services</li>
+                    <li>use the app in a fraudulent, deceptive, or misleading way</li>
+                    <li>reverse engineer, redistribute, or resell the app except where law clearly permits otherwise</li>
+                </ul>
 
-                <section class="section-card" id="professional">
-                    <h2>13. Professional use reminder</h2>
-                    <p>
-                        DrawSight is a tool to assist report creation. It does not replace professional
-                        judgment, state law, licensing requirements, insurance requirements, standards of
-                        practice, or separate agreements between inspectors and their own clients.
-                    </p>
-                </section>
+                <h2 id="availability">11. Availability and warranty disclaimer</h2>
+                <p>
+                    DrawSight is provided on an "as is" and "as available" basis to the maximum
+                    extent permitted by law. We do not guarantee uninterrupted availability, error-free
+                    operation, complete data preservation, or compatibility with every device,
+                    jurisdiction, provider, or workflow.
+                </p>
 
-                <section class="section-card" id="changes">
-                    <h2>14. Changes, suspension, and termination</h2>
-                    <ul>
-                        <li>We may update these Terms from time to time.</li>
-                        <li>Continued use of DrawSight after updated Terms are published means you accept the revised Terms.</li>
-                        <li>Features may be modified, limited, suspended, or discontinued at any time.</li>
-                    </ul>
-                </section>
+                <h2 id="liability">12. Limitation of liability</h2>
+                <p><strong>Important:</strong> To the maximum extent permitted by law:</p>
+                <ul>
+                    <li>we are not liable for indirect, incidental, special, consequential, or punitive damages</li>
+                    <li>we are not liable for lost data, lost business, lost profits, or professional liability arising from use of the app</li>
+                    <li>we are not responsible for third-party provider outages, data errors, account issues, or regulatory mismatches outside DrawSight's direct control</li>
+                </ul>
 
-                <section class="section-card" id="law">
-                    <h2>15. Governing law and severability</h2>
-                    <p>
-                        These Terms are governed by the laws of the State of Utah, without regard to
-                        conflict-of-laws rules, unless another law is required to apply.
-                    </p>
-                    <p>
-                        If any provision of these Terms is found invalid or unenforceable, the remaining
-                        provisions will continue in full force to the extent permitted by law.
-                    </p>
-                </section>
+                <h2 id="professional">13. Professional use reminder</h2>
+                <p>
+                    DrawSight is a tool to assist report creation. It does not replace professional
+                    judgment, state law, licensing requirements, insurance requirements, standards of
+                    practice, or separate agreements between inspectors and their own clients.
+                </p>
 
-                <section class="contact" id="contact">
-                    <h2>16. Contact</h2>
-                    <p>
-                        If you have questions about these Terms, contact DrawSight LLC at
-                        <a href="mailto:support@drawsight.app">support@drawsight.app</a>.
-                    </p>
-                    <p>
-                        Do not send private inspection photos, client names, property addresses, or
-                        full report text unless DrawSight support asks you to use a specific secure path.
-                    </p>
-                </section>
+                <h2 id="changes">14. Changes, suspension, and termination</h2>
+                <ul>
+                    <li>We may update these Terms from time to time.</li>
+                    <li>Continued use of DrawSight after updated Terms are published means you accept the revised Terms.</li>
+                    <li>Features may be modified, limited, suspended, or discontinued at any time.</li>
+                </ul>
+
+                <h2 id="law">15. Governing law and severability</h2>
+                <p>
+                    These Terms are governed by the laws of the State of Utah, without regard to
+                    conflict-of-laws rules, unless another law is required to apply.
+                </p>
+                <p>
+                    If any provision of these Terms is found invalid or unenforceable, the remaining
+                    provisions will continue in full force to the extent permitted by law.
+                </p>
+
+                <h2 id="contact">16. Contact</h2>
+                <p>
+                    If you have questions about these Terms, contact DrawSight LLC at
+                    <a href="mailto:support@drawsight.app">support@drawsight.app</a>.
+                </p>
+                <p>
+                    Do not send private inspection photos, client names, property addresses, or
+                    full report text unless DrawSight support asks you to use a specific secure path.
+                </p>
             </main>
+        </div>
+
+        <footer class="footer">
+            <div class="footer-col">
+                <h4>DrawSight</h4>
+                <p>Photo-first inspection reporting for home inspectors.</p>
+                <p style="margin-top: 12px;">© 2026 DrawSight LLC.</p>
+            </div>
+            <div class="footer-col">
+                <h4>Legal</h4>
+                <a href="privacy-policy.html">Privacy Policy</a>
+                <a href="terms-of-service.html">Terms of Service</a>
+                <a href="delete-account.html">Delete account</a>
+            </div>
+            <div class="footer-col">
+                <h4>Contact</h4>
+                <a href="mailto:support@drawsight.app">support@drawsight.app</a>
+            </div>
+        </footer>
+        <div class="footer-bottom">
+            DrawSight is built for licensed home inspectors. Your inspection data stays on the device.
         </div>
     </div>
 </body>
