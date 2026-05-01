@@ -1,0 +1,15 @@
+{
+  "applinks": {
+    "details": [
+      {
+        "appIDs": ["AV35TV39GP.com.drawsight.drawsight"],
+        "components": [
+          {
+            "/": "/claim*",
+            "comment": "DrawSight magic-link email-claim flow (Workstream H, 2026-05-01)"
+          }
+        ]
+      }
+    ]
+  }
+}

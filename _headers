@@ -1,0 +1,10 @@
+# Cloudflare Pages headers config.
+# Pin Content-Type on the deep-link verification files. Apple's verifier
+# rejects the AASA file unless Content-Type is application/json (the file
+# has no extension, so Pages defaults to application/octet-stream).
+
+/.well-known/apple-app-site-association
+  Content-Type: application/json
+
+/.well-known/assetlinks.json
+  Content-Type: application/json

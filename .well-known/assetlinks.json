@@ -1,0 +1,12 @@
+[
+  {
+    "relation": ["delegate_permission/common.handle_all_urls"],
+    "target": {
+      "namespace": "android_app",
+      "package_name": "com.drawsight.drawsight",
+      "sha256_cert_fingerprints": [
+        "94:7F:83:E1:97:33:FB:94:58:14:FC:A3:CD:36:9A:13:FB:EC:AB:4E:95:6C:4C:22:81:5C:CE:FD:C4:73:CC:63"
+      ]
+    }
+  }
+]
