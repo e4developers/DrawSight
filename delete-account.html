@@ -3,12 +3,15 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Delete Account — DrawSight</title>
+    <title>Delete Account · DrawSight</title>
     <meta name="description" content="How to delete your DrawSight account and any associated inspection data.">
     <meta name="theme-color" content="#0C1322">
     <link rel="canonical" href="https://drawsight.app/delete-account.html">
     <link rel="icon" type="image/png" href="assets/logo.png">
     <link rel="apple-touch-icon" href="assets/logo.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap">
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -42,9 +45,25 @@
                 <h1>Delete your DrawSight account and data.</h1>
                 <span class="effective">Two paths: device + server</span>
 
+                <aside class="legal-glance" aria-label="Deletion at a glance">
+                    <span class="eyebrow">At a glance</span>
+                    <h3>Two ways to delete. Use either or both.</h3>
+                    <p style="margin-bottom: 16px;">DrawSight is local-first, so "delete my account" really means two separate things: clearing the data on your device, and asking us to drop the small managed-access record we keep for your install.</p>
+                    <div class="glance-grid">
+                        <div class="glance-item">
+                            <span class="check" aria-hidden="true">1</span>
+                            <div><strong>In-app deletion.</strong> Settings → Legal → Delete account &amp; all data. Wipes every local surface in one step.</div>
+                        </div>
+                        <div class="glance-item">
+                            <span class="check" aria-hidden="true">2</span>
+                            <div><strong>Server-side request.</strong> Email <a href="mailto:support@drawsight.app?subject=Account%20Deletion%20Request">support@drawsight.app</a> with your installation ID. We respond within 30 days.</div>
+                        </div>
+                    </div>
+                </aside>
+
                 <p>
                     DrawSight is local-first: inspection records, photos, and reports live on your
-                    device, not in a cloud account. "Deleting your account" means two things —
+                    device, not in a cloud account. "Deleting your account" means two things:
                     clearing the data on your device, and asking DrawSight LLC to remove any
                     managed-access records (subscription state, installation ID, AI usage counters)
                     we hold for you server-side.
@@ -53,7 +72,7 @@
                 <h2 id="in-app">1. In-app deletion (clears device data)</h2>
                 <p>
                     The in-app "Delete account &amp; all data" flow wipes every local
-                    surface the app owns in a single step — no uninstall required.
+                    surface the app owns in a single step. No uninstall required.
                 </p>
                 <ol>
                     <li>Open DrawSight on the device.</li>
@@ -67,7 +86,7 @@
                     <li>every inspection plus all cascading data (sections, subsections, findings, photos, annotations, and per-snapshot audit records);</li>
                     <li>the byte-identical <em>original</em> copy of every inspection photo that DrawSight preserves for evidentiary fidelity;</li>
                     <li>thumbnails and working copies of every inspection photo;</li>
-                    <li>every exported <code>.dsbk</code> backup file the app created under its own documents directory (files you exported to Google Drive, Files, iCloud, or any other destination are outside the app's reach — delete those through that destination);</li>
+                    <li>every exported <code>.dsbk</code> backup file the app created under its own documents directory (files you exported to Google Drive, Files, iCloud, or any other destination are outside the app's reach; delete those through that destination);</li>
                     <li>the partial-restore staging directory used during backup imports;</li>
                     <li>the comment-template library, inspector-profile record, My Signals dictionary (on-device hand-signal training data), finding-version history, and the AI retry queue;</li>
                     <li>the encrypted local database file plus its write-ahead-log, shared-memory and rollback-journal companions;</li>
@@ -84,8 +103,8 @@
                 <h2 id="server">2. Server-side deletion request</h2>
                 <p>
                     If you want DrawSight LLC to delete the managed-access data we hold for you
-                    — installation ID, subscription / entitlement state, AI usage counters, any
-                    hosted diagnostic events tied to your device — email us:
+                    (installation ID, subscription / entitlement state, AI usage counters, any
+                    hosted diagnostic events tied to your device), email us:
                 </p>
                 <p>
                     <a href="mailto:support@drawsight.app?subject=Account%20Deletion%20Request">support@drawsight.app</a>
@@ -108,7 +127,7 @@
                 <p>
                     DrawSight LLC may retain limited records to satisfy legal, tax, accounting,
                     fraud-prevention, or billing-reconciliation obligations. This is typically
-                    minimal invoice-level metadata from the App Store or Google Play — it does not
+                    minimal invoice-level metadata from the App Store or Google Play. It does not
                     include your inspection content. Anonymized operational metrics that cannot be
                     tied back to you may also be retained.
                 </p>
@@ -120,32 +139,40 @@
 
                 <h2 id="questions">5. Questions</h2>
                 <p>
-                    Email <a href="mailto:support@drawsight.app">support@drawsight.app</a>. Do
-                    not include private inspection photos, client names, or property addresses in
-                    deletion-request emails — we do not need them to process the request.
+                    Email <a href="mailto:support@drawsight.app">support@drawsight.app</a>. Please
+                    don't include private inspection photos, client names, or property addresses in
+                    deletion-request emails. We don't need them to process the request.
                 </p>
             </main>
         </div>
 
         <footer class="footer">
             <div class="footer-col">
-                <h4>DrawSight</h4>
-                <p>Photo-first inspection reporting for home inspectors.</p>
+                <span class="footer-brand">
+                    <img src="assets/logo.png" alt="" aria-hidden="true">
+                    <span>DrawSight</span>
+                </span>
+                <p>Photo-first inspection reporting for licensed home inspectors.</p>
                 <p style="margin-top: 12px;">© 2026 DrawSight LLC.</p>
             </div>
             <div class="footer-col">
-                <h4>Legal</h4>
+                <h4>Product</h4>
+                <a href="index.html#how-it-works">How it works</a>
+                <a href="index.html#pricing">Pricing</a>
+                <a href="mailto:support@drawsight.app?subject=DrawSight%20pilot%20interest">Request pilot access</a>
+            </div>
+            <div class="footer-col">
+                <h4>Company &amp; legal</h4>
                 <a href="privacy-policy.html">Privacy Policy</a>
                 <a href="terms-of-service.html">Terms of Service</a>
                 <a href="delete-account.html">Delete account</a>
-            </div>
-            <div class="footer-col">
-                <h4>Contact</h4>
                 <a href="mailto:support@drawsight.app">support@drawsight.app</a>
             </div>
         </footer>
         <div class="footer-bottom">
-            DrawSight is built for licensed home inspectors. Your inspection data stays on the device.
+            DrawSight is built for licensed home inspectors.
+            <span class="dot">·</span>
+            Your inspection data stays on the device.
         </div>
     </div>
 </body>

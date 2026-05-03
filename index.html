@@ -3,12 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>DrawSight — Photo-First Inspection Reporting</title>
+    <title>DrawSight · Photo-First Inspection Reporting</title>
     <meta name="description" content="DrawSight drafts home inspection reports from your photos. AI sorts, drafts, and suggests severity. You review and ship. Local-first storage, encrypted backups, no AI training on your inspection data.">
     <meta name="author" content="DrawSight LLC">
     <meta name="robots" content="index, follow">
     <meta name="theme-color" content="#0C1322">
-    <meta property="og:title" content="DrawSight — Photo-First Inspection Reporting">
+    <meta property="og:title" content="DrawSight · Photo-First Inspection Reporting">
     <meta property="og:description" content="AI drafts home inspection reports from your photos. You review and ship. Local-first, encrypted, no AI training on your data.">
     <meta property="og:url" content="https://drawsight.app/">
     <meta property="og:type" content="website">
@@ -17,6 +17,9 @@
     <link rel="canonical" href="https://drawsight.app/">
     <link rel="icon" type="image/png" href="assets/logo.png">
     <link rel="apple-touch-icon" href="assets/logo.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap">
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -27,9 +30,10 @@
                 <span>DrawSight</span>
             </a>
             <div class="nav-links">
+                <a href="#how-it-works">How it works</a>
+                <a href="#pricing">Pricing</a>
                 <a href="privacy-policy.html">Privacy</a>
                 <a href="terms-of-service.html">Terms</a>
-                <a href="delete-account.html">Delete account</a>
                 <a href="mailto:support@drawsight.app">Support</a>
             </div>
         </nav>
@@ -38,8 +42,9 @@
             <img class="hero-logo" src="assets/logo.png" alt="DrawSight app icon">
             <h1>Inspection reports drafted from your photos.</h1>
             <p class="lede">
-                DrawSight is a photo-first reporting app for home inspectors. Capture as you walk
-                the property. AI sorts, drafts, and suggests severity. You review and ship.
+                A photo-first reporting app for licensed home inspectors. Walk the
+                property and capture what you see. The AI sorts each shot, drafts the
+                finding, and suggests severity. You review, you sign, you ship.
             </p>
             <div class="cta-row">
                 <!-- TODO(L): replace with real TestFlight / Play store URLs once
@@ -48,7 +53,21 @@
                 <a class="btn btn-primary" href="mailto:support@drawsight.app?subject=DrawSight%20pilot%20interest">
                     Request pilot access
                 </a>
-                <a class="btn btn-secondary" href="#how-it-works">See how it works</a>
+            </div>
+
+            <div class="hero-stats" role="list" aria-label="Product highlights">
+                <div class="stat" role="listitem">
+                    <div class="stat-value">Photo → PDF</div>
+                    <div class="stat-label">4-step pipeline</div>
+                </div>
+                <div class="stat" role="listitem">
+                    <div class="stat-value">Local-first</div>
+                    <div class="stat-label">Encrypted on device</div>
+                </div>
+                <div class="stat" role="listitem">
+                    <div class="stat-value">No training</div>
+                    <div class="stat-label">On your photos</div>
+                </div>
             </div>
         </section>
 
@@ -64,7 +83,7 @@
                 <article class="card">
                     <span class="num">1</span>
                     <h3>Capture</h3>
-                    <p>Take photos as you walk the property. One-tap or batch — the app routes either way.</p>
+                    <p>Take photos as you walk the property. One-tap or batch, the app routes either way.</p>
                 </article>
                 <article class="card">
                     <span class="num">2</span>
@@ -89,8 +108,8 @@
             <span class="eyebrow">Privacy first</span>
             <h2 id="privacy-pitch">Your inspection photos never train our AI.</h2>
             <p>
-                DrawSight uses managed AI to draft findings — never as training data. The
-                no-training commitment is in the <a href="terms-of-service.html#content">Terms of Service §9</a>,
+                We use managed AI to draft findings, never as training data. The
+                no-training commitment lives in the <a href="terms-of-service.html#content">Terms of Service §9</a>,
                 not a marketing line.
             </p>
             <p>
@@ -99,19 +118,99 @@
             </p>
         </section>
 
-        <!-- ── Built for inspectors ───────────────────────────────── -->
+        <!-- ── Built for inspectors (feature grid w/ inline SVG icons) ─── -->
         <section>
             <div class="section-head">
-                <span class="eyebrow">Built for inspectors, not interns</span>
-                <h2>Field-ready discipline.</h2>
+                <span class="eyebrow">Built for the field</span>
+                <h2>The details that matter when your name's on the report.</h2>
+                <p>Small things that add up when you're standing in a crawlspace at 4pm on a Friday.</p>
             </div>
-            <ul class="trust-list">
-                <li>Local-first storage — your inspection data lives on the device, not in a vendor's cloud account.</li>
-                <li>AES-256 encrypted backups — exportable, restorable, controlled by you.</li>
-                <li>Inspector keeps final say — every AI draft is reviewable before export. AI never marks a finding "reviewed."</li>
-                <li>Original photo evidence preserved byte-identical alongside the working copy. No silent re-encoding.</li>
-                <li>Photo-first batch mode for high-volume inspections. Approve in bulk, but safety findings always need an individual look.</li>
-            </ul>
+            <div class="feature-grid">
+                <article class="feature">
+                    <span class="icon" aria-hidden="true">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M3 10h18"/></svg>
+                    </span>
+                    <h3>Local-first storage</h3>
+                    <p>Inspection data lives on the device, not in a vendor cloud. AES-256 encrypted SQLite under the hood.</p>
+                </article>
+                <article class="feature">
+                    <span class="icon" aria-hidden="true">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2 4 6v6c0 5 3.5 8.5 8 10 4.5-1.5 8-5 8-10V6l-8-4z"/><path d="m9 12 2 2 4-4"/></svg>
+                    </span>
+                    <h3>Encrypted backups you control</h3>
+                    <p>Exportable, restorable <code>.dsbk</code> files protected by a key only you hold. No vendor lock-in.</p>
+                </article>
+                <article class="feature">
+                    <span class="icon" aria-hidden="true">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="m9 12 2 2 4-4"/></svg>
+                    </span>
+                    <h3>You always have the last word</h3>
+                    <p>Every AI draft is reviewable before export. The AI never marks anything "reviewed" for you. That call is yours.</p>
+                </article>
+                <article class="feature">
+                    <span class="icon" aria-hidden="true">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="6" width="18" height="14" rx="2"/><circle cx="12" cy="13" r="3.5"/><path d="M8 6V4h8v2"/></svg>
+                    </span>
+                    <h3>Originals preserved byte-identical</h3>
+                    <p>Working copies are sanitized for AI; the evidentiary original is preserved alongside, untouched.</p>
+                </article>
+                <article class="feature">
+                    <span class="icon" aria-hidden="true">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/></svg>
+                    </span>
+                    <h3>Photo-first batch mode</h3>
+                    <p>Process a whole property at once. Bulk-approve low-confidence non-safety items; safety always needs an individual look.</p>
+                </article>
+                <article class="feature">
+                    <span class="icon" aria-hidden="true">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16v16H4z"/><path d="m8 12 3 3 5-7"/></svg>
+                    </span>
+                    <h3>State-aware export</h3>
+                    <p>Full validation in supported states. Elsewhere, an explicit Inspector Responsibility acknowledgment. Your seal, your liability, no surprises.</p>
+                </article>
+            </div>
+        </section>
+
+        <!-- ── Pricing ──────────────────────────────────────────────── -->
+        <section id="pricing">
+            <div class="section-head">
+                <span class="eyebrow">Pricing</span>
+                <h2>Simple monthly pricing. No client portal fees.</h2>
+                <p>Subscriptions are managed by the App Store and Google Play. Cancel anytime in your store settings.</p>
+            </div>
+            <div class="pricing-grid">
+                <article class="price-card featured">
+                    <div class="tier-name">Field</div>
+                    <div class="price">$59<small>/month</small></div>
+                    <p class="tier-blurb">For working inspectors who want AI drafts in the field, fast.</p>
+                    <ul>
+                        <li>AI photo routing &amp; finding drafts</li>
+                        <li>Photo-first batch processing</li>
+                        <li>State-aware PDF export</li>
+                        <li>Encrypted local storage + backups</li>
+                        <li>Comment library &amp; My Signals</li>
+                    </ul>
+                    <a class="btn btn-primary" href="mailto:support@drawsight.app?subject=DrawSight%20pilot%20interest%20%E2%80%94%20Field">
+                        Request pilot access
+                    </a>
+                </article>
+                <article class="price-card">
+                    <div class="tier-name">Pro</div>
+                    <div class="price">$119<small>/month</small></div>
+                    <p class="tier-blurb">Everything in Field, plus higher AI throughput for high-volume practices.</p>
+                    <ul>
+                        <li>Everything in Field</li>
+                        <li>Higher monthly AI request limits</li>
+                        <li>Priority pilot-program support</li>
+                        <li>Year-end summary export</li>
+                        <li>Industry insights overlays</li>
+                    </ul>
+                    <a class="btn btn-secondary" href="mailto:support@drawsight.app?subject=DrawSight%20pilot%20interest%20%E2%80%94%20Pro">
+                        Request pilot access
+                    </a>
+                </article>
+            </div>
+            <p class="price-note">7-day free trial when offered through the App Store or Google Play. Refunds handled by the platform per their standard policies.</p>
         </section>
 
         <!-- ── FAQ ────────────────────────────────────────────────── -->
@@ -138,7 +237,7 @@
                 <details>
                     <summary>What if I lose my phone?</summary>
                     <p>Restore an encrypted <code>.dsbk</code> backup on a new device. If you didn't keep a backup,
-                        the local data is gone — that's the local-first trade-off. We can rebind your subscription
+                        the local data is gone. That's the local-first trade-off. We can rebind your subscription
                         to the new install via the email-claim flow inside the app.</p>
                 </details>
                 <details>
@@ -146,45 +245,62 @@
                     <p>North Carolina is the current narrow full-support launch state for final export. Other
                         states are in draft-assist mode while state-specific export rules continue to mature. In
                         non-full-support states, final export requires an explicit Inspector Responsibility
-                        acknowledgment, recorded as an audit event on the report — the inspector's license and
+                        acknowledgment, recorded as an audit event on the report. The inspector's license and
                         seal carry the liability either way.</p>
                 </details>
                 <details>
-                    <summary>How much does it cost?</summary>
-                    <p>Field tier is $59/month, Pro tier is $119/month. Subscriptions are managed by the App Store
-                        and Google Play. <a href="mailto:support@drawsight.app?subject=DrawSight%20pilot%20interest">Email support</a>
+                    <summary>How does pricing work?</summary>
+                    <p>See <a href="#pricing">Pricing</a> above. Field is $59/mo, Pro is $119/mo, both billed
+                        monthly through the App Store or Google Play. <a href="mailto:support@drawsight.app?subject=DrawSight%20pilot%20interest">Email support</a>
                         for pilot access during the pre-launch period.</p>
                 </details>
                 <details>
                     <summary>Can I get a refund?</summary>
                     <p>Refunds are handled by the App Store or Google Play per their standard policies. We don't
-                        process payments directly — they do.</p>
+                        process payments directly. They do.</p>
                 </details>
             </div>
+        </section>
+
+        <!-- ── Closing CTA strip ────────────────────────────────────── -->
+        <section class="cta-strip">
+            <h3>Ready to draft your next report from photos?</h3>
+            <p>Pilot access is open while we ramp the App Store and Google Play listings.</p>
+            <a class="btn btn-primary" href="mailto:support@drawsight.app?subject=DrawSight%20pilot%20interest">
+                Request pilot access
+            </a>
         </section>
 
         <!-- ── Footer ─────────────────────────────────────────────── -->
         <footer class="footer">
             <div class="footer-col">
-                <h4>DrawSight</h4>
-                <p>Photo-first inspection reporting for home inspectors.</p>
+                <span class="footer-brand">
+                    <img src="assets/logo.png" alt="" aria-hidden="true">
+                    <span>DrawSight</span>
+                </span>
+                <p>Photo-first inspection reporting for licensed home inspectors.</p>
                 <p style="margin-top: 12px;">© 2026 DrawSight LLC.</p>
             </div>
             <div class="footer-col">
-                <h4>Legal</h4>
+                <h4>Product</h4>
+                <a href="#how-it-works">How it works</a>
+                <a href="#pricing">Pricing</a>
+                <a href="mailto:support@drawsight.app?subject=DrawSight%20pilot%20interest">Request pilot access</a>
+            </div>
+            <div class="footer-col">
+                <h4>Company &amp; legal</h4>
                 <a href="privacy-policy.html">Privacy Policy</a>
                 <a href="terms-of-service.html">Terms of Service</a>
                 <a href="delete-account.html">Delete account</a>
-            </div>
-            <div class="footer-col">
-                <h4>Contact</h4>
                 <a href="mailto:support@drawsight.app">support@drawsight.app</a>
-                <p style="margin-top: 12px;">Final-export validation supported in 1 state (NC). Other states in
-                    draft-assist mode.</p>
             </div>
         </footer>
         <div class="footer-bottom">
-            DrawSight is built for licensed home inspectors. Your inspection data stays on the device.
+            DrawSight is built for licensed home inspectors.
+            <span class="dot">·</span>
+            Your inspection data stays on the device.
+            <span class="dot">·</span>
+            Final-export validation supported in 1 state (NC); other states in draft-assist mode.
         </div>
     </div>
 </body>
