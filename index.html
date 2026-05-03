@@ -222,10 +222,12 @@
             <div class="faq">
                 <details>
                     <summary>How does the AI work?</summary>
-                    <p>Photos route through a DrawSight-managed proxy to Anthropic's Claude vision model. The proxy
-                        adds inspector context (state standards, comment library, severity model) so the draft is
-                        useful without a tuning pass. Anthropic does not train on API traffic by default; the
-                        DrawSight Terms forbid the same on our end.</p>
+                    <p>Photos route through a DrawSight-managed proxy to an approved AI vision model. The AI
+                        never sees a per-user account or credential. Your inspection photos are never used as
+                        training data; that's a contractual commitment in our
+                        <a href="terms-of-service.html#content">Terms of Service §9</a>, not a default we hope
+                        holds. The current subprocessor is identified in our
+                        <a href="privacy-policy.html#third-party">Privacy Policy</a>.</p>
                 </details>
                 <details>
                     <summary>Where is my data stored?</summary>
