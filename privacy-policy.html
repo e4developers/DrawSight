@@ -52,7 +52,7 @@
 
             <main class="legal-body">
                 <h1>How DrawSight handles inspection data today.</h1>
-                <span class="effective">Effective May 6, 2026</span>
+                <span class="effective">Effective May 8, 2026</span>
 
                 <aside class="legal-glance" aria-label="Privacy at a glance">
                     <span class="eyebrow">At a glance</span>
@@ -153,6 +153,22 @@
                     Anthropic privacy information is available at
                     <a href="https://www.anthropic.com/privacy" target="_blank" rel="noreferrer">anthropic.com/privacy</a>.
                 </p>
+                <p><strong>Template import from PDF</strong></p>
+                <p>
+                    When the user taps "Import from PDF" in My Templates and selects an existing
+                    inspection report, DrawSight uploads the entire PDF &mdash; including any embedded
+                    photos, client names, property addresses, signatures, or finding notes inside it
+                    &mdash; through the DrawSight-managed AI proxy to Anthropic so the report
+                    structure can be extracted into a reusable template. The bytes are processed
+                    in memory and discarded after extraction. The user-chosen filename is replaced
+                    with a constant placeholder before the multipart upload leaves the device, so
+                    inspector-chosen names like a property address or a client&rsquo;s name do not reach
+                    the proxy log. The template that is stored on-device after extraction contains
+                    only structural metadata (section titles, codes, optional theme colors and
+                    header / footer text); no photos or finding text from the source PDF are
+                    persisted. The app shows an explicit consent dialog identifying the picked file
+                    before any bytes leave the device.
+                </p>
                 <p><strong>Managed access identity and rate limiting</strong></p>
                 <p>
                     Supported managed builds use a device-specific installation identity plus
@@ -167,6 +183,24 @@
                     When address autocomplete is used, typed property-address queries are sent to the
                     DrawSight-managed geocoder proxy and then to the configured provider for that
                     deployment. In the current managed path, that provider is Mapbox.
+                </p>
+                <p><strong>Scheduling reminder emails</strong></p>
+                <p>
+                    When the user sets a "scheduled for" date / time on an inspection, DrawSight pushes
+                    a small reminder row to the managed Worker so the cron can send the inspector + the
+                    client + the referring agent reminder emails 24 hours and 1 hour before the
+                    scheduled time. The row carries the inspector&rsquo;s subscriber identifier, the
+                    inspection id, the scheduled timestamp, the inspector&rsquo;s email, and the
+                    optional client and agent emails (only those the user has saved on the inspection),
+                    plus the inspector&rsquo;s name, the client&rsquo;s name, and a short
+                    inspection-label string that becomes the email subject. The Worker&rsquo;s D1
+                    database stores the row until the inspector clears the scheduled time or
+                    finishes / cancels the inspection, or 30 days past the scheduled time &mdash;
+                    whichever comes first. The actual email send is handled by Resend
+                    (<a href="https://resend.com/legal/privacy-policy" target="_blank" rel="noreferrer">resend.com/legal/privacy-policy</a>),
+                    which receives the rendered email and the recipient email address only at send
+                    time. The 24h / 1h reminders can each be disabled per-inspector in
+                    <strong>Settings &rarr; Scheduling Reminders</strong>; both default ON.
                 </p>
                 <p><strong>Voice note transcription</strong></p>
                 <p>
@@ -185,6 +219,24 @@
                     configured analytics endpoint. These integrations are optional and deployment-specific.
                     Hosted payloads are intended to exclude full inspection photos, full report bodies,
                     raw file-system paths, direct contact data, and persistent record identifiers.
+                </p>
+                <p><strong>Google Sign-In and Google Calendar (optional)</strong></p>
+                <p>
+                    Connecting Google Sign-In and / or Google Calendar is optional. When the
+                    inspector taps "Sign in with Google" or "Connect Google Calendar," DrawSight
+                    runs the standard OAuth flow against Google&rsquo;s identity provider; Google
+                    receives the OAuth client identifier, the requested scopes, and the
+                    inspector&rsquo;s consent decision. On success Google returns the inspector&rsquo;s
+                    account email plus, for Calendar, a token DrawSight uses to push inspection
+                    events directly to the inspector&rsquo;s Calendar. DrawSight stores the
+                    account email and the per-event Calendar event IDs locally on the device
+                    (used to update or delete the matching event when the inspection is rescheduled
+                    or cancelled). DrawSight does NOT store the OAuth refresh / access tokens on
+                    the managed Worker; the tokens stay in device-local secure storage. The
+                    inspector can disconnect at any time from <strong>Settings &rarr; Account
+                    &amp; Sign-In</strong>; revocation in their Google Account also stops sync.
+                    Use of Google services is also governed by the Google privacy policy
+                    (<a href="https://policies.google.com/privacy" target="_blank" rel="noreferrer">policies.google.com/privacy</a>).
                 </p>
                 <p><strong>System share destinations</strong></p>
                 <p>
@@ -223,9 +275,10 @@
                     fixed schedules:
                 </p>
                 <ul>
-                    <li>product-telemetry / usage-event records: retained for 60 days</li>
+                    <li>per-AI-call usage records (model, photo count, token totals, cost, day &mdash; no subscriber, installation, or content identifier): retained for <strong>12 months</strong> rolling, then purged automatically on every write</li>
+                    <li>in-app behavior records (welcome screen shown / dismissed, entitlement gate fired, deep-link claim attempted / succeeded &mdash; the onboarding-funnel surface): retained for <strong>12 months</strong> rolling, purged automatically on every write</li>
                     <li>store-purchase verification events used to link a purchase to an entitlement: retained for 45 days</li>
-                    <li>admin-audit events tied to administrative or support access (may include IP address, user-agent, and subscriber identity): retained for 90 days</li>
+                    <li>admin-audit events tied to administrative or support access (may include IP address, user-agent, and subscriber identity, including subscriber-purge actions): retained for 90 days</li>
                 </ul>
                 <p>
                     Entitlement records themselves persist for the lifetime of the active
@@ -301,9 +354,11 @@
                 <h2 id="industry-insights">12. Industry insights</h2>
                 <p>
                     DrawSight offers an optional Industry Insights data-sharing toggle in
-                    Settings → Privacy. The toggle is opt-in for paid plans and disabled by
-                    default for accounts without an active subscription. Inspectors can flip
-                    the toggle at any time without affecting any other DrawSight feature.
+                    <strong>Settings &rarr; Privacy</strong>. The toggle is <strong>opt-in for
+                    everyone &mdash; paid or not &mdash; and disabled by default.</strong>
+                    Inspectors have to flip it on explicitly before any aggregate row leaves
+                    the device, and the toggle can be flipped back off at any time without
+                    affecting any other DrawSight feature.
                 </p>
                 <p>
                     When enabled, DrawSight transmits a small anonymized summary after each

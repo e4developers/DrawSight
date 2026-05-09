@@ -115,6 +115,20 @@
                     <strong>Settings → Subscription &amp; Access</strong>. We will process the request
                     within 30 days and reply when complete.
                 </p>
+                <p>
+                    Server-side deletion runs through an admin-only purge route that
+                    sweeps the entitlement record, every per-installation pointer, the
+                    email&rarr;subscriber index, the reverify-cron index, the billing-
+                    transaction index, every store-purchase event tied to your
+                    installations, and the in-app behavior telemetry, scheduled-reminder,
+                    and scheduling-preference rows in the analytics database. A short
+                    audit event recording that the purge happened (with no PII beyond
+                    plan / billing metadata) is retained for 90 days for accountability.
+                    Anonymous AI-call pricing telemetry, which carries only an
+                    inspection ID and no subscriber / installation / email, is not
+                    individually addressable and ages out via the standard 12-month
+                    retention sweep instead.
+                </p>
 
                 <h2 id="what-deleted">3. What gets deleted</h2>
                 <ul>
