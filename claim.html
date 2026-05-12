@@ -101,13 +101,15 @@
             </p>
 
             <div class="claim-card" id="with-token" hidden>
-                <a id="open-app" class="open-btn" href="#">Open DrawSight to activate</a>
-                <p class="muted">
-                    If the button does nothing, the app may not be installed
-                    on this device, or your email opened this in a browser that
-                    can't launch other apps. Copy the activation code below and
-                    paste it into <strong>Settings → Subscription &amp; Access →
-                    Restore by email</strong> in DrawSight.
+                <p>
+                    If DrawSight is installed and Universal Links / App Links
+                    are working, the email link should have launched the app
+                    directly. If you're seeing this page instead, your email
+                    opened the link in a browser that can't hand off to the
+                    app (Gmail in-app webview is the usual culprit). Copy the
+                    activation code below and paste it into <strong>Settings
+                    → Subscription &amp; Access → Restore by email</strong>
+                    in DrawSight.
                 </p>
 
                 <h3 style="margin-top: 24px; font-size: 16px;">Activation code</h3>
@@ -197,22 +199,26 @@
         // where that fails: in-app webviews (Gmail, Outlook), the app
         // isn't installed, or the link was opened on desktop.
         //
-        // Strategy:
+        // Codex R3 fix-lane Phase 3 #5 (2026-05-10, Audit Area 9 #1):
+        // this page no longer mints a `drawsight://claim?token=...`
+        // button. Pre-fix the page generated that custom-scheme link
+        // for every visit, including current magic-link flows where
+        // Universal Links should have caught the click first. Android
+        // custom schemes are not domain-verified -- another app could
+        // claim the scheme and intercept the activation token. Until
+        // the Android intent-filter is removed (tracked separately by
+        // `DeepLinkRouter.customSchemeIgnoreFromDate` on 2026-08-01),
+        // the safe fallback is copy/manual-paste only. Strategy:
         //   1. Pull the token out of the query string. No token → show
         //      the "missing code" box and stop.
-        //   2. Render the token + a "Open DrawSight" button that points
-        //      at the drawsight://claim deep-link. Tapping it triggers
-        //      the same custom-scheme handler the in-app paste field
-        //      accepts.
-        //   3. Wire a clipboard fallback so users in environments that
-        //      can't launch other apps (Gmail webview on iOS) can still
-        //      grab the code and paste it into the in-app form.
-        //
-        // We deliberately do NOT auto-redirect to drawsight:// on page
-        // load — Safari + Chrome show a noisy "open in app?" prompt and
-        // an error page if the scheme isn't registered, which is worse
-        // than the current 404 from the user's perspective. The big
-        // primary button is the explicit affordance.
+        //   2. Render the token + a copy button. The disclosure paragraph
+        //      tells the inspector to paste it into the in-app
+        //      Settings → Subscription & Access → Restore by email
+        //      form -- the only authenticated activation channel.
+        //   3. Don't auto-redirect to drawsight:// (was already off
+        //      pre-fix), don't surface a custom-scheme button (this
+        //      fix), don't try anything that downgrades the
+        //      domain-verified HTTPS path the email URL already used.
         (function () {
             var params = new URLSearchParams(window.location.search);
             var token = (params.get('token') || '').trim();
@@ -224,9 +230,6 @@
 
             document.getElementById('with-token').hidden = false;
             document.getElementById('token-chip').textContent = token;
-
-            var openBtn = document.getElementById('open-app');
-            openBtn.href = 'drawsight://claim?token=' + encodeURIComponent(token);
 
             var copyBtn = document.getElementById('copy-btn');
             var feedback = document.getElementById('copy-feedback');

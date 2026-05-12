@@ -52,7 +52,7 @@
 
             <main class="legal-body">
                 <h1>How DrawSight handles inspection data today.</h1>
-                <span class="effective">Effective May 9, 2026</span>
+                <span class="effective">Effective May 11, 2026</span>
 
                 <aside class="legal-glance" aria-label="Privacy at a glance">
                     <span class="eyebrow">At a glance</span>
@@ -65,7 +65,7 @@
                         </div>
                         <div class="glance-item">
                             <span class="check" aria-hidden="true">✓</span>
-                            <div><strong>No AI training on your photos.</strong> AI requests are processed by approved providers and never used to train models.</div>
+                            <div><strong>Sanitized photos for AI.</strong> The working copy used by AI has EXIF and GPS stripped; the byte-identical original stays on your device.</div>
                         </div>
                         <div class="glance-item">
                             <span class="check" aria-hidden="true">✓</span>
@@ -169,6 +169,26 @@
                     persisted. The app shows an explicit consent dialog identifying the picked file
                     before any bytes leave the device.
                 </p>
+                <p><strong>Signal training (My Signals narrated video)</strong></p>
+                <p>
+                    When the user records or picks a narrated training video in <strong>My Signals</strong>,
+                    DrawSight extracts the audio track and a small number of sampled frames on the device
+                    before any upload. The raw video file never leaves the device. The extracted audio and
+                    frames are uploaded together to the DrawSight-managed Worker, which forwards the audio
+                    to <strong>Cloudflare Workers AI</strong> for transcription
+                    (<a href="https://developers.cloudflare.com/workers-ai/" target="_blank" rel="noreferrer">developers.cloudflare.com/workers-ai</a>)
+                    using OpenAI&rsquo;s Whisper model and forwards the sampled frames together with the
+                    Whisper transcript text to Anthropic so the on-device signal dictionary can be built.
+                    Audio bytes, frames, and transcript text are processed in-memory during the request
+                    and are not retained server-side as training media; only standard per-request usage
+                    metadata (model, token counts, cost, day, inspection identifier) lands in the same
+                    pricing telemetry surface described below. The photo-only training path (the default
+                    CTA in My Signals) does not upload any media at all &mdash; on-device MediaPipe
+                    extracts hand landmarks and the inspector types the meaning. The app shows an
+                    explicit confirmation dialog before any narrated-video bytes leave the device so the
+                    inspector can pick the photo-only path instead if the disclosure isn&rsquo;t
+                    acceptable.
+                </p>
                 <p><strong>Managed access identity and rate limiting</strong></p>
                 <p>
                     Supported managed builds use a device-specific installation identity plus
@@ -211,6 +231,24 @@
                     speech-recognition stack. The resulting transcript becomes part of the note
                     content the user can edit, save, export, or later send through AI-assisted
                     drafting flows.
+                </p>
+                <p><strong>Cloudflare Web Analytics (public website only)</strong></p>
+                <p>
+                    The public marketing + support pages at <code>https://drawsight.app/</code>
+                    (this page, the Terms of Service, the Delete-Account help page, and the
+                    magic-link Claim page) are hosted on Cloudflare Pages. Cloudflare Pages
+                    automatically injects the Cloudflare Web Analytics beacon
+                    (<code>static.cloudflareinsights.com/beacon.min.js</code>) on those pages.
+                    The beacon may transmit the requested page URL, the HTTP referrer, the
+                    user-agent string, and IP-address-derived approximate region / browser
+                    metadata to Cloudflare so the operator can see aggregate page-view counts.
+                    Cloudflare states the beacon does not use cookies and does not
+                    fingerprint individual visitors; their privacy and retention terms are at
+                    <a href="https://www.cloudflare.com/web-analytics/" target="_blank" rel="noreferrer">cloudflare.com/web-analytics</a>
+                    and the broader Cloudflare privacy policy is at
+                    <a href="https://www.cloudflare.com/privacypolicy/" target="_blank" rel="noreferrer">cloudflare.com/privacypolicy</a>.
+                    The DrawSight mobile app itself does not load the Cloudflare Web Analytics
+                    beacon &mdash; this disclosure covers the public site only.
                 </p>
                 <p><strong>Optional hosted diagnostics and analytics</strong></p>
                 <p>

@@ -4,12 +4,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>DrawSight · Photo-First Inspection Reporting</title>
-    <meta name="description" content="DrawSight drafts home inspection reports from your photos. AI sorts, drafts, and suggests severity. You review and ship. Local-first storage, encrypted backups, no AI training on your inspection data.">
+    <meta name="description" content="DrawSight drafts home inspection reports from your photos. AI sorts, drafts, and suggests severity. You review and ship. Local-first storage, encrypted backups.">
     <meta name="author" content="DrawSight LLC">
     <meta name="robots" content="index, follow">
     <meta name="theme-color" content="#0C1322">
     <meta property="og:title" content="DrawSight · Photo-First Inspection Reporting">
-    <meta property="og:description" content="AI drafts home inspection reports from your photos. You review and ship. Local-first, encrypted, no AI training on your data.">
+    <meta property="og:description" content="AI drafts home inspection reports from your photos. You review and ship. Local-first and encrypted on the device.">
     <meta property="og:url" content="https://drawsight.app/">
     <meta property="og:type" content="website">
     <meta property="og:site_name" content="DrawSight">
@@ -65,8 +65,8 @@
                     <div class="stat-label">Encrypted on device</div>
                 </div>
                 <div class="stat" role="listitem">
-                    <div class="stat-value">No training</div>
-                    <div class="stat-label">On your photos</div>
+                    <div class="stat-value">49 of 50</div>
+                    <div class="stat-label">States supported</div>
                 </div>
             </div>
         </section>
@@ -103,18 +103,14 @@
             </div>
         </section>
 
-        <!-- ── Privacy callout (durable differentiator) ──────────── -->
-        <section class="callout" aria-labelledby="privacy-pitch">
-            <span class="eyebrow">Privacy first</span>
-            <h2 id="privacy-pitch">Your inspection photos never train our AI.</h2>
+        <!-- ── Local-first callout ───────────────────────────────── -->
+        <section class="callout" aria-labelledby="local-first-pitch">
+            <span class="eyebrow">Local-first</span>
+            <h2 id="local-first-pitch">Your inspection records stay on the device.</h2>
             <p>
-                We use managed AI to draft findings, never as training data. The
-                no-training commitment lives in the <a href="terms-of-service.html#content">Terms of Service §9</a>,
-                not a marketing line.
-            </p>
-            <p>
-                Your inspection records, photos, and reports stay on the device. Backups
-                are encrypted with a key only you hold.
+                Inspection data, photos, and reports live in encrypted local storage.
+                Backups are <code>.dsbk</code> files protected by a key only you hold —
+                exportable and restorable on your terms, with no vendor cloud lock-in.
             </p>
         </section>
 
@@ -223,11 +219,8 @@
                 <details>
                     <summary>How does the AI work?</summary>
                     <p>Photos route through a DrawSight-managed proxy to an approved AI vision model. The AI
-                        never sees a per-user account or credential. Your inspection photos are never used as
-                        training data; that's a contractual commitment in our
-                        <a href="terms-of-service.html#content">Terms of Service §9</a>, not a default we hope
-                        holds. The current subprocessor is identified in our
-                        <a href="privacy-policy.html#third-party">Privacy Policy</a>.</p>
+                        never sees a per-user account or credential. The current subprocessor is identified in
+                        our <a href="privacy-policy.html#third-party">Privacy Policy</a>.</p>
                 </details>
                 <details>
                     <summary>Where is my data stored?</summary>
