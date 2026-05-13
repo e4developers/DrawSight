@@ -52,7 +52,7 @@
 
             <main class="legal-body">
                 <h1>How DrawSight handles inspection data today.</h1>
-                <span class="effective">Effective May 11, 2026</span>
+                <span class="effective">Effective May 13, 2026</span>
 
                 <aside class="legal-glance" aria-label="Privacy at a glance">
                     <span class="eyebrow">At a glance</span>
@@ -265,15 +265,35 @@
                     runs the standard OAuth flow against Google&rsquo;s identity provider; Google
                     receives the OAuth client identifier, the requested scopes, and the
                     inspector&rsquo;s consent decision. On success Google returns the inspector&rsquo;s
-                    account email plus, for Calendar, a token DrawSight uses to push inspection
-                    events directly to the inspector&rsquo;s Calendar. DrawSight stores the
-                    account email and the per-event Calendar event IDs locally on the device
-                    (used to update or delete the matching event when the inspection is rescheduled
-                    or cancelled). DrawSight does NOT store the OAuth refresh / access tokens on
-                    the managed Worker; the tokens stay in device-local secure storage. The
-                    inspector can disconnect at any time from <strong>Settings &rarr; Account
-                    &amp; Sign-In</strong>; revocation in their Google Account also stops sync.
-                    Use of Google services is also governed by the Google privacy policy
+                    account email plus, for Calendar, a token DrawSight uses to sync inspection
+                    events with a single inspector-chosen DrawSight calendar.
+                </p>
+                <p>
+                    <strong>Two-way Calendar sync (opt-in).</strong> When the inspector enables
+                    "Two-way sync with DrawSight calendar" in Settings, DrawSight (a) reads
+                    upcoming events from the inspector-chosen DrawSight calendar to surface them
+                    as draft inspections, (b) writes inspection edits back to those events, and
+                    (c) when an inspection is cancelled, moves the bound event to a sibling
+                    calendar named "DrawSight Inspections &mdash; Cancelled" (auto-created on
+                    first cancellation). DrawSight commits to ONLY reading and writing events
+                    on the inspector-picked DrawSight calendar (and its Cancelled sibling) and
+                    NEVER touches events on the inspector&rsquo;s other calendars. Two-way sync
+                    is gated behind an explicit Settings opt-in; the default is one-way push of
+                    events DrawSight creates. The granted OAuth scope is
+                    <code>https://www.googleapis.com/auth/calendar</code>, which Google requires
+                    for calendar list, non-owned event reads, and calendar creation; the
+                    behavioral boundary above is enforced by DrawSight, not by the scope.
+                </p>
+                <p>
+                    DrawSight stores the account email, the chosen DrawSight calendar id, the
+                    last-pull cursor, and the per-event Calendar event IDs locally on the device
+                    (used to update or delete the matching event when the inspection is
+                    rescheduled or cancelled). DrawSight does NOT store the OAuth refresh /
+                    access tokens on the managed Worker; the tokens stay in device-local secure
+                    storage. The inspector can disconnect at any time from <strong>Settings
+                    &rarr; Google Calendar &rarr; Disconnect</strong> (which also wipes local
+                    sync state); revocation in their Google Account also stops sync. Use of
+                    Google services is also governed by the Google privacy policy
                     (<a href="https://policies.google.com/privacy" target="_blank" rel="noreferrer">policies.google.com/privacy</a>).
                 </p>
                 <p><strong>System share destinations</strong></p>
