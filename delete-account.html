@@ -121,10 +121,18 @@
                     email&rarr;subscriber index, the reverify-cron index, the billing-
                     transaction index, every store-purchase event tied to your
                     installations, and the in-app behavior telemetry, scheduled-reminder,
-                    and scheduling-preference rows in the analytics database. A short
-                    audit event recording that the purge happened (with no PII beyond
-                    plan / billing metadata) is retained for 90 days for accountability.
-                    Anonymous AI-call pricing telemetry, which carries only an
+                    and scheduling-preference rows in the analytics database. An audit
+                    event recording the purge action is retained for 90 days for
+                    accountability and regulator response. The audit event includes the
+                    `subscriber_id`, `installation_id`, the operator&rsquo;s `actor_ip`
+                    and `actor_user_agent`, the supplied DSAR / support reason, and a
+                    snapshot of the pre-purge entitlement record (plan, billing
+                    metadata, claim email). It does not include inspection content,
+                    photos, captions, or other on-device material &mdash; those are
+                    deleted on the device path described in section 1 and never
+                    reconstructable from the audit row. After 90 days the audit
+                    event ages out automatically via the standard audit retention
+                    sweep. Anonymous AI-call pricing telemetry, which carries only an
                     inspection ID and no subscriber / installation / email, is not
                     individually addressable and ages out via the standard 12-month
                     retention sweep instead.
