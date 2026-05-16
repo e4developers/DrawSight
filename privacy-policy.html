@@ -254,8 +254,11 @@
                     Some builds may be configured to send redacted crash events to a hosted crash
                     reporting service such as Sentry, and redacted product telemetry events to a
                     configured analytics endpoint. These integrations are optional and deployment-specific.
-                    Hosted payloads are intended to exclude full inspection photos, full report bodies,
-                    raw file-system paths, direct contact data, and persistent record identifiers.
+                    Hosted payloads exclude full inspection photos, full report bodies, raw file-system
+                    paths, direct contact data, and persistent record identifiers; redaction is enforced
+                    at both the DrawSight client (before the payload is sent) and at the Worker route
+                    (before the payload is persisted) so a single bypassed call site cannot leak raw
+                    identifiers under hosted retention.
                 </p>
                 <p><strong>Google Sign-In and Google Calendar (optional)</strong></p>
                 <p>
