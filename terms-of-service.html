@@ -163,11 +163,44 @@
                     <li>the managed address-lookup provider path used by the DrawSight Worker, currently Mapbox in managed builds</li>
                     <li>optional hosted crash reporting or analytics endpoints if configured for a given build</li>
                     <li>operating-system share targets and file destinations selected by the user</li>
+                    <li>Google Sign-In and Google Calendar, used only when the inspector opts in to scheduling features (see the Optional Google Calendar sync clause below); use of Google services is also governed by Google&rsquo;s own terms at <a href="https://policies.google.com/terms" target="_blank" rel="noreferrer">policies.google.com/terms</a></li>
+                    <li>the email provider DrawSight uses to send 24-hour and 1-hour scheduling reminders (currently Resend) when the inspector enters a client or agent email on a scheduled inspection</li>
                 </ul>
                 <p>
                     Your use of those services may also be governed by their own terms and privacy
                     policies. You are responsible for charges, limits, or suspensions associated with
                     your own external accounts, where applicable.
+                </p>
+                <h3>Optional Google Calendar sync</h3>
+                <p>
+                    Connecting Google Calendar is optional. When the inspector taps
+                    &ldquo;Connect Google Calendar,&rdquo; DrawSight runs Google&rsquo;s
+                    OAuth flow and (on success) receives a token DrawSight uses to sync
+                    inspections with a single inspector-chosen DrawSight calendar. The
+                    granted OAuth scope is
+                    <code>https://www.googleapis.com/auth/calendar</code>, which Google
+                    requires for calendar listing, non-owned event reads, and calendar
+                    creation.
+                </p>
+                <p>
+                    By default DrawSight only pushes events DrawSight creates into the
+                    inspector-chosen DrawSight calendar. When the inspector enables
+                    <strong>two-way sync</strong> in Settings, DrawSight also (a) reads
+                    upcoming events from the inspector-chosen DrawSight calendar to
+                    surface them as draft inspections, (b) writes inspection edits back
+                    to those events via <code>events.update</code>, and (c) when an
+                    inspection is cancelled, uses <code>events.move</code> to move the
+                    bound event to a sibling calendar named
+                    &ldquo;DrawSight Inspections &mdash; Cancelled&rdquo;
+                    (auto-created on first cancellation). DrawSight commits to ONLY
+                    reading, updating, creating, and moving events on the
+                    inspector-chosen DrawSight calendar (and its Cancelled sibling), and
+                    never touches events on the inspector&rsquo;s other calendars; that
+                    behavioural boundary is enforced by DrawSight, not by the OAuth
+                    scope. The inspector can disconnect at any time from
+                    <strong>Settings &rarr; Google Calendar &rarr; Disconnect</strong>
+                    (which also wipes local sync state); revocation in the Google
+                    account also stops sync.
                 </p>
 
                 <h2 id="content">9. User content, exports, and backups</h2>
