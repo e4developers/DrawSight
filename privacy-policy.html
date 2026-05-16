@@ -52,7 +52,7 @@
 
             <main class="legal-body">
                 <h1>How DrawSight handles inspection data today.</h1>
-                <span class="effective">Effective May 13, 2026</span>
+                <span class="effective">Effective May 15, 2026</span>
 
                 <aside class="legal-glance" aria-label="Privacy at a glance">
                     <span class="eyebrow">At a glance</span>
@@ -179,10 +179,9 @@
                     (<a href="https://developers.cloudflare.com/workers-ai/" target="_blank" rel="noreferrer">developers.cloudflare.com/workers-ai</a>)
                     using OpenAI&rsquo;s Whisper model and forwards the sampled frames together with the
                     Whisper transcript text to Anthropic so the on-device signal dictionary can be built.
-                    Audio bytes, frames, and transcript text are processed in-memory during the request
-                    and are not retained server-side as training media; only standard per-request usage
-                    metadata (model, token counts, cost, day, inspection identifier) lands in the same
-                    pricing telemetry surface described below. The photo-only training path (the default
+                    Audio bytes, frames, and transcript text are processed in-memory during the request;
+                    standard per-request usage metadata (model, token counts, cost, day, inspection
+                    identifier) lands in the same pricing telemetry surface described below. The photo-only training path (the default
                     CTA in My Signals) does not upload any media at all &mdash; on-device MediaPipe
                     extracts hand landmarks and the inspector types the meaning. The app shows an
                     explicit confirmation dialog before any narrated-video bytes leave the device so the
